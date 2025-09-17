@@ -1,0 +1,1471 @@
+[
+  {
+  "id": 999,
+  "profile": {
+    "first_name": "Mohammed",
+    "last_name": "Elhajifi",
+    "email": "mohammed.elhajifi@bhrm.com",
+    "password": "SecurePass2025!",
+    "role": "admin",
+    "contract": "alternance",
+    "job_title": "Comptable",
+    "department": "Finance",
+    "hire_date": "2024-09-15",
+    "current_projects": [
+      {
+        "project_id": 1,
+        "name": "Audit interne",
+        "start_date": "2025-09-25",
+        "status": "en cours"
+      },
+      {
+        "project_id": 2,
+        "name": "Mise à jour des procédures comptables",
+        "start_date": "2025-08-01",
+        "status": "en cours"
+      }
+    ],
+    "work_days_per_year": 220
+  },
+  "attendance_leave": {
+    "leave_balance": 14,
+    "leave_requests": [
+      {
+        "id": 111,
+        "type": "vacation",
+        "start_date": "2025-12-20",
+        "end_date": "2025-12-27",
+        "reason": "Family Christmas vacation",
+        "status": "pending",
+        "approved_by": "admin"
+      }
+    ],
+    "history_of_leaves": [
+      {
+        "id": 11,
+        "type": "sick",
+        "start_date": "2025-06-10",
+        "end_date": "2025-06-12",
+        "reason": "Flu",
+        "status": "approved",
+        "approved_by": "manager_2"
+      },
+      {
+        "id": 12,
+        "type": "sick",
+        "start_date": "2025-09-29",
+        "end_date": "2025-09-30",
+        "reason": "Migraine",
+        "status": "approved",
+        "approved_by": "manager_1"
+      },
+      {
+        "id": 13,
+        "type": "other",
+        "start_date": "2025-09-20",
+        "end_date": "2025-09-22",
+        "reason": "Personal matters",
+        "status": "approved",
+        "approved_by": "manager_2"
+      }
+    ]
+  },
+  "payroll": {
+    "salary_amount": 3600,
+    "payslips": [
+      {
+        "id": 1,
+        "month": "August",
+        "year": 2025,
+        "file_url": "https://example.com/payslips/mohammed_elhajifi_august_2025.pdf"
+      },
+      {
+        "id": 2,
+        "month": "September",
+        "year": 2025,
+        "file_url": "https://example.com/payslips/mohammed_elhajifi_september_2025.pdf"
+      }
+    ],
+    "overtime_hours": 12,
+    "bonuses": 250,
+    "deductions": 60
+  },
+  "documents": {
+    "contracts": [
+      "https://example.com/docs/contract_mohammed_elhajifi.pdf"
+    ],
+    "certificates": [
+      "https://example.com/docs/certificate_accounting.pdf"
+    ],
+    "id_documents": [
+      "https://example.com/docs/passport_mohammed_elhajifi.pdf"
+    ]
+  }
+}
+,
+  {
+    "id": 1000,
+    "profile": {
+      "first_name": "Fatima",
+      "last_name": "El Amrani",
+      "email": "fatima.elamrani@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "HR Specialist",
+      "department": "Human Resources",
+      "hire_date": "2024-05-15",
+      "current_projects": [
+        {
+          "project_id": 101,
+          "name": "Employee Engagement Program",
+          "start_date": "2025-07-01",
+          "status": "en cours"
+        },
+        {
+          "project_id": 102,
+          "name": "Payroll Automation",
+          "start_date": "2025-09-01",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 218
+    },
+    "attendance_leave": {
+      "leave_balance": 15,
+      "leave_requests": [
+        {
+          "id": 201,
+          "type": "vacation",
+          "start_date": "2025-10-10",
+          "end_date": "2025-10-15",
+          "reason": "Wedding attendance",
+          "status": "pending",
+          "approved_by": "admin"
+        }
+      ],
+      "history_of_leaves": [
+        {
+          "id": 301,
+          "type": "sick",
+          "start_date": "2025-02-20",
+          "end_date": "2025-02-22",
+          "reason": "Flu",
+          "status": "approved",
+          "approved_by": "manager_1"
+        },
+        {
+          "id": 302,
+          "type": "vacation",
+          "start_date": "2025-07-05",
+          "end_date": "2025-07-12",
+          "reason": "Beach holiday",
+          "status": "approved",
+          "approved_by": "manager_1"
+        },
+        {
+          "id": 303,
+          "type": "other",
+          "start_date": "2025-09-10",
+          "end_date": "2025-09-11",
+          "reason": "Personal errand",
+          "status": "approved",
+          "approved_by": "manager_1"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4500,
+      "payslips": [
+        {
+          "id": 401,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/fatima_elamrani_august_2025.pdf"
+        },
+        {
+          "id": 402,
+          "month": "September",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/fatima_elamrani_september_2025.pdf"
+        }
+      ],
+      "overtime_hours": 5,
+      "bonuses": 300,
+      "deductions": 75
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_fatima_elamrani.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_hr.pdf",
+        "https://example.com/docs/certificate_payroll.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_fatima_elamrani.pdf",
+        "https://example.com/docs/id_card_fatima_elamrani.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1001,
+    "profile": {
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "Software Engineer",
+      "department": "IT",
+      "hire_date": "2023-03-15",
+      "current_projects": [
+        {
+          "project_id": 1,
+          "name": "Internal Tools Revamp",
+          "start_date": "2025-05-01",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 220
+    },
+    "attendance_leave": {
+      "leave_balance": 14,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 101,
+          "type": "vacation",
+          "start_date": "2025-06-01",
+          "end_date": "2025-06-10",
+          "reason": "Summer trip",
+          "status": "approved",
+          "approved_by": "admin"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 5000,
+      "payslips": [
+        {
+          "id": 201,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/john_doe_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 8,
+      "bonuses": 300,
+      "deductions": 100
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_john_doe.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_aws.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_john_doe.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1002,
+    "profile": {
+      "first_name": "Emma",
+      "last_name": "Smith",
+      "email": "emma.smith@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "Marketing Manager",
+      "department": "Marketing",
+      "hire_date": "2022-09-20",
+      "current_projects": [
+        {
+          "project_id": 2,
+          "name": "Social Media Campaign",
+          "start_date": "2025-07-15",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 218
+    },
+    "attendance_leave": {
+      "leave_balance": 12,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 102,
+          "type": "vacation",
+          "start_date": "2025-08-05",
+          "end_date": "2025-08-12",
+          "reason": "Family holiday",
+          "status": "approved",
+          "approved_by": "manager_2"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4800,
+      "payslips": [
+        {
+          "id": 202,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/emma_smith_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 5,
+      "bonuses": 400,
+      "deductions": 50
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_emma_smith.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_marketing.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_emma_smith.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1003,
+    "profile": {
+      "first_name": "Fatima",
+      "last_name": "El Amrani",
+      "email": "fatima.elamrani@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "HR Specialist",
+      "department": "Human Resources",
+      "hire_date": "2024-05-15",
+      "current_projects": [
+        {
+          "project_id": 3,
+          "name": "Employee Engagement Program",
+          "start_date": "2025-07-01",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 218
+    },
+    "attendance_leave": {
+      "leave_balance": 15,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 103,
+          "type": "sick",
+          "start_date": "2025-02-20",
+          "end_date": "2025-02-22",
+          "reason": "Flu",
+          "status": "approved",
+          "approved_by": "manager_1"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4500,
+      "payslips": [
+        {
+          "id": 203,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/fatima_elamrani_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 5,
+      "bonuses": 300,
+      "deductions": 75
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_fatima_elamrani.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_hr.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_fatima_elamrani.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1004,
+    "profile": {
+      "first_name": "Alex",
+      "last_name": "Johnson",
+      "email": "alex.johnson@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "Financial Analyst",
+      "department": "Finance",
+      "hire_date": "2023-11-10",
+      "current_projects": [
+        {
+          "project_id": 4,
+          "name": "Budget Planning 2026",
+          "start_date": "2025-09-01",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 220
+    },
+    "attendance_leave": {
+      "leave_balance": 10,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 104,
+          "type": "vacation",
+          "start_date": "2025-07-15",
+          "end_date": "2025-07-20",
+          "reason": "Summer break",
+          "status": "approved",
+          "approved_by": "manager_2"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4700,
+      "payslips": [
+        {
+          "id": 204,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/alex_johnson_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 12,
+      "bonuses": 250,
+      "deductions": 80
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_alex_johnson.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_finance.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_alex_johnson.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1005,
+    "profile": {
+      "first_name": "Laila",
+      "last_name": "Benkirane",
+      "email": "laila.benkirane@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "Recruitment Specialist",
+      "department": "Human Resources",
+      "hire_date": "2023-06-20",
+      "current_projects": [
+        {
+          "project_id": 5,
+          "name": "Talent Acquisition 2025",
+          "start_date": "2025-08-01",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 218
+    },
+    "attendance_leave": {
+      "leave_balance": 18,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 105,
+          "type": "vacation",
+          "start_date": "2025-07-10",
+          "end_date": "2025-07-15",
+          "reason": "Beach holiday",
+          "status": "approved",
+          "approved_by": "manager_1"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4200,
+      "payslips": [
+        {
+          "id": 205,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/laila_benkirane_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 3,
+      "bonuses": 200,
+      "deductions": 50
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_laila_benkirane.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_hr.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_laila_benkirane.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1006,
+    "profile": {
+      "first_name": "David",
+      "last_name": "Miller",
+      "email": "david.miller@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "Product Manager",
+      "department": "IT",
+      "hire_date": "2022-11-05",
+      "current_projects": [
+        {
+          "project_id": 6,
+          "name": "Mobile App Launch",
+          "start_date": "2025-09-10",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 220
+    },
+    "attendance_leave": {
+      "leave_balance": 12,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 106,
+          "type": "sick",
+          "start_date": "2025-03-10",
+          "end_date": "2025-03-12",
+          "reason": "Flu",
+          "status": "approved",
+          "approved_by": "manager_2"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 5500,
+      "payslips": [
+        {
+          "id": 206,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/david_miller_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 10,
+      "bonuses": 500,
+      "deductions": 120
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_david_miller.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_pm.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_david_miller.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1007,
+    "profile": {
+      "first_name": "Sara",
+      "last_name": "Haddad",
+      "email": "sara.haddad@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDD",
+      "job_title": "Financial Controller",
+      "department": "Finance",
+      "hire_date": "2023-02-18",
+      "current_projects": [
+        {
+          "project_id": 7,
+          "name": "Quarterly Reporting",
+          "start_date": "2025-08-05",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 220
+    },
+    "attendance_leave": {
+      "leave_balance": 10,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 107,
+          "type": "vacation",
+          "start_date": "2025-07-01",
+          "end_date": "2025-07-05",
+          "reason": "Family trip",
+          "status": "approved",
+          "approved_by": "manager_2"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4600,
+      "payslips": [
+        {
+          "id": 207,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/sara_haddad_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 6,
+      "bonuses": 350,
+      "deductions": 80
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_sara_haddad.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_finance.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_sara_haddad.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1008,
+    "profile": {
+      "first_name": "Michael",
+      "last_name": "Brown",
+      "email": "michael.brown@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "IT Support Specialist",
+      "department": "IT",
+      "hire_date": "2022-08-12",
+      "current_projects": [
+        {
+          "project_id": 8,
+          "name": "Infrastructure Upgrade",
+          "start_date": "2025-09-05",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 220
+    },
+    "attendance_leave": {
+      "leave_balance": 15,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 108,
+          "type": "sick",
+          "start_date": "2025-05-10",
+          "end_date": "2025-05-12",
+          "reason": "Migraine",
+          "status": "approved",
+          "approved_by": "manager_1"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4300,
+      "payslips": [
+        {
+          "id": 208,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/michael_brown_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 7,
+      "bonuses": 200,
+      "deductions": 60
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_michael_brown.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_it.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_michael_brown.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1009,
+    "profile": {
+      "first_name": "Youssef",
+      "last_name": "Ouhammou",
+      "email": "youssef.ouhammou@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "Operations Manager",
+      "department": "Operations",
+      "hire_date": "2021-12-10",
+      "current_projects": [
+        {
+          "project_id": 9,
+          "name": "Warehouse Optimization",
+          "start_date": "2025-06-01",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 222
+    },
+    "attendance_leave": {
+      "leave_balance": 20,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 109,
+          "type": "vacation",
+          "start_date": "2025-08-15",
+          "end_date": "2025-08-20",
+          "reason": "Family trip",
+          "status": "approved",
+          "approved_by": "admin"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 6000,
+      "payslips": [
+        {
+          "id": 209,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/youssef_ouhammou_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 15,
+      "bonuses": 500,
+      "deductions": 150
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_youssef_ouhammou.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_ops.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_youssef_ouhammou.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1010,
+    "profile": {
+      "first_name": "Nora",
+      "last_name": "El Fassi",
+      "email": "nora.elfassi@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "UX Designer",
+      "department": "Design",
+      "hire_date": "2023-01-15",
+      "current_projects": [
+        {
+          "project_id": 10,
+          "name": "Website Redesign",
+          "start_date": "2025-07-20",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 218
+    },
+    "attendance_leave": {
+      "leave_balance": 12,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 110,
+          "type": "vacation",
+          "start_date": "2025-06-20",
+          "end_date": "2025-06-25",
+          "reason": "Summer vacation",
+          "status": "approved",
+          "approved_by": "manager_2"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4700,
+      "payslips": [
+        {
+          "id": 210,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/nora_elfassi_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 4,
+      "bonuses": 250,
+      "deductions": 60
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_nora_elfassi.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_design.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_nora_elfassi.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1011,
+    "profile": {
+      "first_name": "Omar",
+      "last_name": "Choukri",
+      "email": "omar.choukri@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "Logistics Coordinator",
+      "department": "Operations",
+      "hire_date": "2022-05-10",
+      "current_projects": [
+        {
+          "project_id": 11,
+          "name": "Supply Chain Optimization",
+          "start_date": "2025-08-10",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 220
+    },
+    "attendance_leave": {
+      "leave_balance": 16,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 111,
+          "type": "vacation",
+          "start_date": "2025-07-05",
+          "end_date": "2025-07-12",
+          "reason": "Family trip",
+          "status": "approved",
+          "approved_by": "manager_2"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4500,
+      "payslips": [
+        {
+          "id": 211,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/omar_choukri_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 6,
+      "bonuses": 300,
+      "deductions": 70
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_omar_choukri.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_ops.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_omar_choukri.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1012,
+    "profile": {
+      "first_name": "Sophia",
+      "last_name": "Williams",
+      "email": "sophia.williams@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "Content Writer",
+      "department": "Marketing",
+      "hire_date": "2023-03-01",
+      "current_projects": [
+        {
+          "project_id": 12,
+          "name": "Blog Expansion",
+          "start_date": "2025-07-15",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 218
+    },
+    "attendance_leave": {
+      "leave_balance": 14,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 112,
+          "type": "vacation",
+          "start_date": "2025-08-01",
+          "end_date": "2025-08-07",
+          "reason": "Summer break",
+          "status": "approved",
+          "approved_by": "manager_1"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4200,
+      "payslips": [
+        {
+          "id": 212,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/sophia_williams_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 3,
+      "bonuses": 200,
+      "deductions": 50
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_sophia_williams.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_marketing.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_sophia_williams.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1013,
+    "profile": {
+      "first_name": "Hassan",
+      "last_name": "El Ghazali",
+      "email": "hassan.elghazali@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "Business Analyst",
+      "department": "Finance",
+      "hire_date": "2022-09-10",
+      "current_projects": [
+        {
+          "project_id": 13,
+          "name": "Financial Forecasting 2026",
+          "start_date": "2025-09-01",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 220
+    },
+    "attendance_leave": {
+      "leave_balance": 12,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 113,
+          "type": "sick",
+          "start_date": "2025-06-12",
+          "end_date": "2025-06-14",
+          "reason": "Fever",
+          "status": "approved",
+          "approved_by": "manager_2"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4800,
+      "payslips": [
+        {
+          "id": 213,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/hassan_elghazali_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 7,
+      "bonuses": 400,
+      "deductions": 90
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_hassan_elghazali.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_finance.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_hassan_elghazali.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1014,
+    "profile": {
+      "first_name": "Isabelle",
+      "last_name": "Martin",
+      "email": "isabelle.martin@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDD",
+      "job_title": "Graphic Designer",
+      "department": "Design",
+      "hire_date": "2023-04-15",
+      "current_projects": [
+        {
+          "project_id": 14,
+          "name": "Brand Refresh",
+          "start_date": "2025-08-01",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 218
+    },
+    "attendance_leave": {
+      "leave_balance": 10,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 114,
+          "type": "vacation",
+          "start_date": "2025-07-18",
+          "end_date": "2025-07-25",
+          "reason": "Summer break",
+          "status": "approved",
+          "approved_by": "manager_1"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4300,
+      "payslips": [
+        {
+          "id": 214,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/isabelle_martin_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 4,
+      "bonuses": 250,
+      "deductions": 60
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_isabelle_martin.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_design.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_isabelle_martin.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1015,
+    "profile": {
+      "first_name": "Karim",
+      "last_name": "Boussouf",
+      "email": "karim.boussouf@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "Operations Analyst",
+      "department": "Operations",
+      "hire_date": "2022-07-20",
+      "current_projects": [
+        {
+          "project_id": 15,
+          "name": "Process Improvement",
+          "start_date": "2025-09-01",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 220
+    },
+    "attendance_leave": {
+      "leave_balance": 15,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 115,
+          "type": "vacation",
+          "start_date": "2025-08-10",
+          "end_date": "2025-08-15",
+          "reason": "Family vacation",
+          "status": "approved",
+          "approved_by": "manager_2"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4700,
+      "payslips": [
+        {
+          "id": 215,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/karim_boussouf_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 8,
+      "bonuses": 350,
+      "deductions": 80
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_karim_boussouf.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_ops.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_karim_boussouf.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1016,
+    "profile": {
+      "first_name": "Lucas",
+      "last_name": "Davis",
+      "email": "lucas.davis@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "Software Developer",
+      "department": "IT",
+      "hire_date": "2023-02-10",
+      "current_projects": [
+        {
+          "project_id": 16,
+          "name": "New Feature Development",
+          "start_date": "2025-09-01",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 220
+    },
+    "attendance_leave": {
+      "leave_balance": 14,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 116,
+          "type": "sick",
+          "start_date": "2025-06-01",
+          "end_date": "2025-06-03",
+          "reason": "Flu",
+          "status": "approved",
+          "approved_by": "manager_1"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 5000,
+      "payslips": [
+        {
+          "id": 216,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/lucas_davis_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 10,
+      "bonuses": 400,
+      "deductions": 100
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_lucas_davis.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_dev.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_lucas_davis.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1017,
+    "profile": {
+      "first_name": "Salma",
+      "last_name": "Idrissi",
+      "email": "salma.idrissi@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "PR Specialist",
+      "department": "Marketing",
+      "hire_date": "2022-12-01",
+      "current_projects": [
+        {
+          "project_id": 17,
+          "name": "Press Campaign 2025",
+          "start_date": "2025-08-15",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 218
+    },
+    "attendance_leave": {
+      "leave_balance": 12,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 117,
+          "type": "vacation",
+          "start_date": "2025-07-20",
+          "end_date": "2025-07-25",
+          "reason": "Summer break",
+          "status": "approved",
+          "approved_by": "manager_1"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4500,
+      "payslips": [
+        {
+          "id": 217,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/salma_idrissi_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 5,
+      "bonuses": 300,
+      "deductions": 70
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_salma_idrissi.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_pr.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_salma_idrissi.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1018,
+    "profile": {
+      "first_name": "Ethan",
+      "last_name": "Clark",
+      "email": "ethan.clark@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "Data Analyst",
+      "department": "Finance",
+      "hire_date": "2023-05-12",
+      "current_projects": [
+        {
+          "project_id": 18,
+          "name": "Customer Data Analysis",
+          "start_date": "2025-09-01",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 220
+    },
+    "attendance_leave": {
+      "leave_balance": 14,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 118,
+          "type": "sick",
+          "start_date": "2025-06-05",
+          "end_date": "2025-06-06",
+          "reason": "Cold",
+          "status": "approved",
+          "approved_by": "manager_2"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4800,
+      "payslips": [
+        {
+          "id": 218,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/ethan_clark_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 7,
+      "bonuses": 350,
+      "deductions": 90
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_ethan_clark.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_data.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_ethan_clark.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1019,
+    "profile": {
+      "first_name": "Meryem",
+      "last_name": "Ait Ouarasse",
+      "email": "meryem.aitouarasse@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "Legal Advisor",
+      "department": "Legal",
+      "hire_date": "2021-10-05",
+      "current_projects": [
+        {
+          "project_id": 19,
+          "name": "Contract Review 2025",
+          "start_date": "2025-07-01",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 220
+    },
+    "attendance_leave": {
+      "leave_balance": 18,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 119,
+          "type": "vacation",
+          "start_date": "2025-08-10",
+          "end_date": "2025-08-18",
+          "reason": "Family vacation",
+          "status": "approved",
+          "approved_by": "admin"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 5500,
+      "payslips": [
+        {
+          "id": 219,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/meryem_aitouarasse_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 5,
+      "bonuses": 400,
+      "deductions": 120
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_meryem_aitouarasse.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_legal.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_meryem_aitouarasse.pdf"
+      ]
+    }
+  },
+  {
+    "id": 1020,
+    "profile": {
+      "first_name": "Liam",
+      "last_name": "Taylor",
+      "email": "liam.taylor@bhrm.com",
+      "password": "password123",
+      "role": "employee",
+      "contract": "CDI",
+      "job_title": "Sales Executive",
+      "department": "Sales",
+      "hire_date": "2022-03-15",
+      "current_projects": [
+        {
+          "project_id": 20,
+          "name": "Client Acquisition Campaign",
+          "start_date": "2025-08-01",
+          "status": "en cours"
+        }
+      ],
+      "work_days_per_year": 220
+    },
+    "attendance_leave": {
+      "leave_balance": 16,
+      "leave_requests": [],
+      "history_of_leaves": [
+        {
+          "id": 120,
+          "type": "vacation",
+          "start_date": "2025-07-10",
+          "end_date": "2025-07-15",
+          "reason": "Family trip",
+          "status": "approved",
+          "approved_by": "manager_1"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 4700,
+      "payslips": [
+        {
+          "id": 220,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://example.com/payslips/liam_taylor_august_2025.pdf"
+        }
+      ],
+      "overtime_hours": 6,
+      "bonuses": 300,
+      "deductions": 80
+    },
+    "documents": {
+      "contracts": [
+        "https://example.com/docs/contract_liam_taylor.pdf"
+      ],
+      "certificates": [
+        "https://example.com/docs/certificate_sales.pdf"
+      ],
+      "id_documents": [
+        "https://example.com/docs/passport_liam_taylor.pdf"
+      ]
+    }
+  }
+]
