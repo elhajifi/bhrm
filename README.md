@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Berbou HRM is a Human Resource Management (HRM) web application designed to simplify employee management, payroll, communication, and internal HR processes.
 
-## Getting Started
+It provides a clean interface, efficient workflows, and all-in-one tools for HR teams and managers.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Dashboard – Get an overview of company stats and employee activity.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Departments – Organize and manage teams effectively.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Employees – Add, update, and view employee information.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Employee Form – Easy-to-use form for creating and editing employee profiles.
 
-## Learn More
+### Leave Requests – Submit, review, and manage leave applications.
 
-To learn more about Next.js, take a look at the following resources:
+### Messages – Internal messaging system to improve team communication.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### New Message Form – Compose and send messages quickly.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Payroll – Track salaries, generate payroll, and manage employee compensation.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Profile Pages – Personalized employee profiles with history and details.
