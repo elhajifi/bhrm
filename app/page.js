@@ -30,12 +30,10 @@ export default function LoginPage() {
 
   return (
     <div className="relative flex items-center justify-center min-h-screen bg-white overflow-hidden">
-      {/* Blue light gradient from center-bottom */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-blue-400 via-blue-300/40 to-transparent rounded-full w-[150%] h-[150%] left-1/2 bottom-0 -translate-x-1/2 translate-y-1/4 opacity-40 blur-3xl"></div>
 
       <div className="w-full max-w-xs p-[2px] rounded-xl bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 shadow-lg">
         <div className="bg-white rounded-lg p-6">
-          <h1 className="text-xl font-bold text-blue-600 mb-6 text-center">Admin Login</h1>
           <form onSubmit={handleLogin} className="flex flex-col gap-3">
             <input
               type="email"

@@ -212,7 +212,7 @@ export default function DashboardPage() {
         </div>
       </header>
 
-      <main className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 h-[calc(100vh-8rem)] overflow-hidden">
+      <main className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 overflow-hidden">
         <section className="lg:col-span-2 flex flex-col gap-6 min-h-0">
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
             <CompactCard
@@ -338,75 +338,75 @@ export default function DashboardPage() {
           </div>
         </section>
 
-        <aside className="flex flex-col gap-4 min-h-0">
-  <div className="sticky top-6 p-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition w-full">
-    <div className="flex items-center justify-between mb-3">
-      <h3 className="text-lg font-medium">People</h3>
-      <span className="text-sm text-gray-500">{filteredProfiles.length} results</span>
-    </div>
+        <aside className="flex flex-col justify-between gap-4  ">
+          <div className="sticky top-6 mb-4 p-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition w-full">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-lg font-medium">People</h3>
+              <span className="text-sm text-gray-500">{filteredProfiles.length} results</span>
+            </div>
 
-    {/* Scrollable container with hidden scrollbar */}
-    <div
-      className="max-h-[calc(100vh-20rem)] overflow-y-auto divide-y"
-      style={{
-        scrollbarWidth: "none", /* Firefox */
-      }}
-    >
-      {/* Hide scrollbar for Webkit browsers */}
-      <style jsx>{`
+            {/* Scrollable container with hidden scrollbar */}
+            <div
+              className="max-h-[calc(100vh-20rem)] overflow-y-auto divide-y"
+              style={{
+                scrollbarWidth: "none", /* Firefox */
+              }}
+            >
+              {/* Hide scrollbar for Webkit browsers */}
+              <style jsx>{`
         div::-webkit-scrollbar {
           display: none;
         }
       `}</style>
 
-      {filteredProfiles.slice(0, 20).map((p) => (
-        <div key={p.id} className="py-2 flex items-center justify-between">
-          <div>
-            <div className="text-sm font-medium">{p.profile?.first_name} {p.profile?.last_name}</div>
-            <div className="text-xs text-gray-400">{p.profile?.job_title || '—'}</div>
+              {filteredProfiles.slice(0, 20).map((p) => (
+                <div key={p.id} className="py-2 flex items-center justify-between">
+                  <div>
+                    <div className="text-sm font-medium">{p.profile?.first_name} {p.profile?.last_name}</div>
+                    <div className="text-xs text-gray-400">{p.profile?.job_title || '—'}</div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => router.push(`/auth/employees/${p.id}`)}
+                      className="text-xs px-3 py-1 rounded-lg border hover:bg-gray-50 cursor-pointer"
+                    >
+                      Profile
+                    </button>
+                    <button
+                      onClick={() => router.push(`/auth/messages/${p.id}`)}
+                      className="text-xs px-3 py-1 rounded-lg bg-blue-600 text-white hover:bg-blue-700 cursor-pointer"
+                    >
+                      Message
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => router.push(`/auth/employees/${p.id}`)}
-              className="text-xs px-3 py-1 rounded-lg border hover:bg-gray-50 cursor-pointer"
-            >
-              Profile
-            </button>
-            <button
-              onClick={() => router.push(`/auth/messages/${p.id}`)}
-              className="text-xs px-3 py-1 rounded-lg bg-blue-600 text-white hover:bg-blue-700 cursor-pointer"
-            >
-              Message
-            </button>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
 
-  <div className="p-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition">
-    <h4 className="font-medium mb-2 flex items-center gap-2">
-      <CurrencyDollarIcon className="w-5 h-5" /> Payroll Quick View
-    </h4>
-    <div className="text-sm text-gray-600">
-      Total salaries: {kpis.payrollCosts.totalSalaries.toLocaleString()}
-    </div>
-    <div className="mt-3 flex gap-2">
-      <button
-        onClick={() => router.push("/auth/payroll/")}
-        className="flex-1 py-2 rounded-lg border cursor-pointer"
-      >
-        Export
-      </button>
-      <button
-        onClick={() => router.push("/auth/payroll/")}
-        className="flex-1 py-2 rounded-lg bg-blue-600 text-white cursor-pointer"
-      >
-        Run Payroll
-      </button>
-    </div>
-  </div>
-</aside>
+          <div className="p-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition">
+            <h4 className="font-medium mb-2 flex items-center gap-2">
+              <CurrencyDollarIcon className="w-5 h-5" /> Payroll Quick View
+            </h4>
+            <div className="text-sm text-gray-600">
+              Total salaries: {kpis.payrollCosts.totalSalaries.toLocaleString()}
+            </div>
+            <div className="mt-3 flex gap-2">
+              <button
+                onClick={() => router.push("/auth/payroll/")}
+                className="flex-1 py-2 rounded-lg border cursor-pointer"
+              >
+                Export
+              </button>
+              <button
+                onClick={() => router.push("/auth/payroll/")}
+                className="flex-1 py-2 rounded-lg bg-blue-600 text-white cursor-pointer"
+              >
+                Run Payroll
+              </button>
+            </div>
+          </div>
+        </aside>
 
 
       </main>

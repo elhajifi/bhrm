@@ -1,108 +1,107 @@
 [
   {
-  "id": 999,
-  "profile": {
-    "first_name": "Mohammed",
-    "last_name": "Elhajifi",
-    "email": "mohammed.elhajifi@bhrm.com",
-    "password": "SecurePass2025!",
-    "role": "admin",
-    "contract": "alternance",
-    "job_title": "Comptable",
-    "department": "Finance",
-    "hire_date": "2024-09-15",
-    "current_projects": [
-      {
-        "project_id": 1,
-        "name": "Audit interne",
-        "start_date": "2025-09-25",
-        "status": "en cours"
-      },
-      {
-        "project_id": 2,
-        "name": "Mise à jour des procédures comptables",
-        "start_date": "2025-08-01",
-        "status": "en cours"
-      }
-    ],
-    "work_days_per_year": 220
+    "id": 999,
+    "profile": {
+      "first_name": "Mohammed",
+      "last_name": "Elhajifi",
+      "email": "guest@bhrm.com",
+      "password": "guest",
+      "role": "admin",
+      "contract": "alternance",
+      "job_title": "Comptable",
+      "department": "Finance",
+      "hire_date": "2024-09-15",
+      "current_projects": [
+        {
+          "project_id": 1,
+          "name": "Audit interne",
+          "start_date": "2025-09-25",
+          "status": "ongoing"
+        },
+        {
+          "project_id": 2,
+          "name": "Mise à jour des procédures comptables",
+          "start_date": "2025-08-01",
+          "status": "ongoing"
+        }
+      ],
+      "work_days_per_year": 220
+    },
+    "attendance_leave": {
+      "leave_balance": 14,
+      "leave_requests": [
+        {
+          "id": 111,
+          "type": "vacation",
+          "start_date": "2025-12-20",
+          "end_date": "2025-12-27",
+          "reason": "Family Christmas vacation",
+          "status": "pending",
+          "approved_by": "admin"
+        }
+      ],
+      "history_of_leaves": [
+        {
+          "id": 11,
+          "type": "sick",
+          "start_date": "2025-06-10",
+          "end_date": "2025-06-12",
+          "reason": "Flu",
+          "status": "approved",
+          "approved_by": "manager_2"
+        },
+        {
+          "id": 12,
+          "type": "sick",
+          "start_date": "2025-09-29",
+          "end_date": "2025-09-30",
+          "reason": "Migraine",
+          "status": "approved",
+          "approved_by": "manager_1"
+        },
+        {
+          "id": 13,
+          "type": "other",
+          "start_date": "2025-09-20",
+          "end_date": "2025-09-22",
+          "reason": "Personal matters",
+          "status": "approved",
+          "approved_by": "manager_2"
+        }
+      ]
+    },
+    "payroll": {
+      "salary_amount": 3600,
+      "payslips": [
+        {
+          "id": 1,
+          "month": "August",
+          "year": 2025,
+          "file_url": "https://bhrm.com/payslips/mohammed_elhajifi_august_2025.pdf"
+        },
+        {
+          "id": 2,
+          "month": "September",
+          "year": 2025,
+          "file_url": "https://bhrm.com/payslips/mohammed_elhajifi_september_2025.pdf"
+        }
+      ],
+      "overtime_hours": 12,
+      "bonuses": 250,
+      "deductions": 60
+    },
+    "documents": {
+      "contracts": [
+        "https://bhrm.com/docs/contract_mohammed_elhajifi.pdf"
+      ],
+      "certificates": [
+        "https://bhrm.com/docs/certificate_accounting.pdf"
+      ],
+      "id_documents": [
+        "https://bhrm.com/docs/passport_mohammed_elhajifi.pdf"
+      ]
+    }
   },
-  "attendance_leave": {
-    "leave_balance": 14,
-    "leave_requests": [
-      {
-        "id": 111,
-        "type": "vacation",
-        "start_date": "2025-12-20",
-        "end_date": "2025-12-27",
-        "reason": "Family Christmas vacation",
-        "status": "pending",
-        "approved_by": "admin"
-      }
-    ],
-    "history_of_leaves": [
-      {
-        "id": 11,
-        "type": "sick",
-        "start_date": "2025-06-10",
-        "end_date": "2025-06-12",
-        "reason": "Flu",
-        "status": "approved",
-        "approved_by": "manager_2"
-      },
-      {
-        "id": 12,
-        "type": "sick",
-        "start_date": "2025-09-29",
-        "end_date": "2025-09-30",
-        "reason": "Migraine",
-        "status": "approved",
-        "approved_by": "manager_1"
-      },
-      {
-        "id": 13,
-        "type": "other",
-        "start_date": "2025-09-20",
-        "end_date": "2025-09-22",
-        "reason": "Personal matters",
-        "status": "approved",
-        "approved_by": "manager_2"
-      }
-    ]
-  },
-  "payroll": {
-    "salary_amount": 3600,
-    "payslips": [
-      {
-        "id": 1,
-        "month": "August",
-        "year": 2025,
-        "file_url": "https://example.com/payslips/mohammed_elhajifi_august_2025.pdf"
-      },
-      {
-        "id": 2,
-        "month": "September",
-        "year": 2025,
-        "file_url": "https://example.com/payslips/mohammed_elhajifi_september_2025.pdf"
-      }
-    ],
-    "overtime_hours": 12,
-    "bonuses": 250,
-    "deductions": 60
-  },
-  "documents": {
-    "contracts": [
-      "https://example.com/docs/contract_mohammed_elhajifi.pdf"
-    ],
-    "certificates": [
-      "https://example.com/docs/certificate_accounting.pdf"
-    ],
-    "id_documents": [
-      "https://example.com/docs/passport_mohammed_elhajifi.pdf"
-    ]
-  }
-}
-,
   {
     "id": 1000,
     "profile": {
@@ -120,13 +119,13 @@
           "project_id": 101,
           "name": "Employee Engagement Program",
           "start_date": "2025-07-01",
-          "status": "en cours"
+          "status": "ongoing"
         },
         {
           "project_id": 102,
           "name": "Payroll Automation",
           "start_date": "2025-09-01",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 218
@@ -181,13 +180,13 @@
           "id": 401,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/fatima_elamrani_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/fatima_elamrani_august_2025.pdf"
         },
         {
           "id": 402,
           "month": "September",
           "year": 2025,
-          "file_url": "https://example.com/payslips/fatima_elamrani_september_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/fatima_elamrani_september_2025.pdf"
         }
       ],
       "overtime_hours": 5,
@@ -196,15 +195,15 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_fatima_elamrani.pdf"
+        "https://bhrm.com/docs/contract_fatima_elamrani.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_hr.pdf",
-        "https://example.com/docs/certificate_payroll.pdf"
+        "https://bhrm.com/docs/certificate_hr.pdf",
+        "https://bhrm.com/docs/certificate_payroll.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_fatima_elamrani.pdf",
-        "https://example.com/docs/id_card_fatima_elamrani.pdf"
+        "https://bhrm.com/docs/passport_fatima_elamrani.pdf",
+        "https://bhrm.com/docs/id_card_fatima_elamrani.pdf"
       ]
     }
   },
@@ -225,7 +224,7 @@
           "project_id": 1,
           "name": "Internal Tools Revamp",
           "start_date": "2025-05-01",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 220
@@ -252,7 +251,7 @@
           "id": 201,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/john_doe_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/john_doe_august_2025.pdf"
         }
       ],
       "overtime_hours": 8,
@@ -261,13 +260,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_john_doe.pdf"
+        "https://bhrm.com/docs/contract_john_doe.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_aws.pdf"
+        "https://bhrm.com/docs/certificate_aws.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_john_doe.pdf"
+        "https://bhrm.com/docs/passport_john_doe.pdf"
       ]
     }
   },
@@ -288,7 +287,7 @@
           "project_id": 2,
           "name": "Social Media Campaign",
           "start_date": "2025-07-15",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 218
@@ -315,7 +314,7 @@
           "id": 202,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/emma_smith_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/emma_smith_august_2025.pdf"
         }
       ],
       "overtime_hours": 5,
@@ -324,13 +323,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_emma_smith.pdf"
+        "https://bhrm.com/docs/contract_emma_smith.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_marketing.pdf"
+        "https://bhrm.com/docs/certificate_marketing.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_emma_smith.pdf"
+        "https://bhrm.com/docs/passport_emma_smith.pdf"
       ]
     }
   },
@@ -351,7 +350,7 @@
           "project_id": 3,
           "name": "Employee Engagement Program",
           "start_date": "2025-07-01",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 218
@@ -378,7 +377,7 @@
           "id": 203,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/fatima_elamrani_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/fatima_elamrani_august_2025.pdf"
         }
       ],
       "overtime_hours": 5,
@@ -387,13 +386,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_fatima_elamrani.pdf"
+        "https://bhrm.com/docs/contract_fatima_elamrani.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_hr.pdf"
+        "https://bhrm.com/docs/certificate_hr.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_fatima_elamrani.pdf"
+        "https://bhrm.com/docs/passport_fatima_elamrani.pdf"
       ]
     }
   },
@@ -414,7 +413,7 @@
           "project_id": 4,
           "name": "Budget Planning 2026",
           "start_date": "2025-09-01",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 220
@@ -441,7 +440,7 @@
           "id": 204,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/alex_johnson_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/alex_johnson_august_2025.pdf"
         }
       ],
       "overtime_hours": 12,
@@ -450,13 +449,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_alex_johnson.pdf"
+        "https://bhrm.com/docs/contract_alex_johnson.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_finance.pdf"
+        "https://bhrm.com/docs/certificate_finance.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_alex_johnson.pdf"
+        "https://bhrm.com/docs/passport_alex_johnson.pdf"
       ]
     }
   },
@@ -477,7 +476,7 @@
           "project_id": 5,
           "name": "Talent Acquisition 2025",
           "start_date": "2025-08-01",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 218
@@ -504,7 +503,7 @@
           "id": 205,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/laila_benkirane_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/laila_benkirane_august_2025.pdf"
         }
       ],
       "overtime_hours": 3,
@@ -513,13 +512,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_laila_benkirane.pdf"
+        "https://bhrm.com/docs/contract_laila_benkirane.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_hr.pdf"
+        "https://bhrm.com/docs/certificate_hr.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_laila_benkirane.pdf"
+        "https://bhrm.com/docs/passport_laila_benkirane.pdf"
       ]
     }
   },
@@ -540,7 +539,7 @@
           "project_id": 6,
           "name": "Mobile App Launch",
           "start_date": "2025-09-10",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 220
@@ -567,7 +566,7 @@
           "id": 206,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/david_miller_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/david_miller_august_2025.pdf"
         }
       ],
       "overtime_hours": 10,
@@ -576,13 +575,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_david_miller.pdf"
+        "https://bhrm.com/docs/contract_david_miller.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_pm.pdf"
+        "https://bhrm.com/docs/certificate_pm.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_david_miller.pdf"
+        "https://bhrm.com/docs/passport_david_miller.pdf"
       ]
     }
   },
@@ -603,7 +602,7 @@
           "project_id": 7,
           "name": "Quarterly Reporting",
           "start_date": "2025-08-05",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 220
@@ -630,7 +629,7 @@
           "id": 207,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/sara_haddad_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/sara_haddad_august_2025.pdf"
         }
       ],
       "overtime_hours": 6,
@@ -639,13 +638,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_sara_haddad.pdf"
+        "https://bhrm.com/docs/contract_sara_haddad.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_finance.pdf"
+        "https://bhrm.com/docs/certificate_finance.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_sara_haddad.pdf"
+        "https://bhrm.com/docs/passport_sara_haddad.pdf"
       ]
     }
   },
@@ -666,7 +665,7 @@
           "project_id": 8,
           "name": "Infrastructure Upgrade",
           "start_date": "2025-09-05",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 220
@@ -693,7 +692,7 @@
           "id": 208,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/michael_brown_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/michael_brown_august_2025.pdf"
         }
       ],
       "overtime_hours": 7,
@@ -702,13 +701,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_michael_brown.pdf"
+        "https://bhrm.com/docs/contract_michael_brown.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_it.pdf"
+        "https://bhrm.com/docs/certificate_it.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_michael_brown.pdf"
+        "https://bhrm.com/docs/passport_michael_brown.pdf"
       ]
     }
   },
@@ -729,7 +728,7 @@
           "project_id": 9,
           "name": "Warehouse Optimization",
           "start_date": "2025-06-01",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 222
@@ -756,7 +755,7 @@
           "id": 209,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/youssef_ouhammou_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/youssef_ouhammou_august_2025.pdf"
         }
       ],
       "overtime_hours": 15,
@@ -765,13 +764,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_youssef_ouhammou.pdf"
+        "https://bhrm.com/docs/contract_youssef_ouhammou.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_ops.pdf"
+        "https://bhrm.com/docs/certificate_ops.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_youssef_ouhammou.pdf"
+        "https://bhrm.com/docs/passport_youssef_ouhammou.pdf"
       ]
     }
   },
@@ -792,7 +791,13 @@
           "project_id": 10,
           "name": "Website Redesign",
           "start_date": "2025-07-20",
-          "status": "en cours"
+          "status": "ongoing"
+        },
+        {
+          "project_id": 1758312457501,
+          "name": "e-magazine",
+          "start_date": "2025-09-22",
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 218
@@ -819,7 +824,7 @@
           "id": 210,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/nora_elfassi_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/nora_elfassi_august_2025.pdf"
         }
       ],
       "overtime_hours": 4,
@@ -828,13 +833,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_nora_elfassi.pdf"
+        "https://bhrm.com/docs/contract_nora_elfassi.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_design.pdf"
+        "https://bhrm.com/docs/certificate_design.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_nora_elfassi.pdf"
+        "https://bhrm.com/docs/passport_nora_elfassi.pdf"
       ]
     }
   },
@@ -855,7 +860,7 @@
           "project_id": 11,
           "name": "Supply Chain Optimization",
           "start_date": "2025-08-10",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 220
@@ -882,7 +887,7 @@
           "id": 211,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/omar_choukri_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/omar_choukri_august_2025.pdf"
         }
       ],
       "overtime_hours": 6,
@@ -891,13 +896,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_omar_choukri.pdf"
+        "https://bhrm.com/docs/contract_omar_choukri.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_ops.pdf"
+        "https://bhrm.com/docs/certificate_ops.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_omar_choukri.pdf"
+        "https://bhrm.com/docs/passport_omar_choukri.pdf"
       ]
     }
   },
@@ -918,7 +923,7 @@
           "project_id": 12,
           "name": "Blog Expansion",
           "start_date": "2025-07-15",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 218
@@ -945,7 +950,7 @@
           "id": 212,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/sophia_williams_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/sophia_williams_august_2025.pdf"
         }
       ],
       "overtime_hours": 3,
@@ -954,13 +959,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_sophia_williams.pdf"
+        "https://bhrm.com/docs/contract_sophia_williams.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_marketing.pdf"
+        "https://bhrm.com/docs/certificate_marketing.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_sophia_williams.pdf"
+        "https://bhrm.com/docs/passport_sophia_williams.pdf"
       ]
     }
   },
@@ -981,7 +986,7 @@
           "project_id": 13,
           "name": "Financial Forecasting 2026",
           "start_date": "2025-09-01",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 220
@@ -1008,7 +1013,7 @@
           "id": 213,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/hassan_elghazali_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/hassan_elghazali_august_2025.pdf"
         }
       ],
       "overtime_hours": 7,
@@ -1017,13 +1022,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_hassan_elghazali.pdf"
+        "https://bhrm.com/docs/contract_hassan_elghazali.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_finance.pdf"
+        "https://bhrm.com/docs/certificate_finance.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_hassan_elghazali.pdf"
+        "https://bhrm.com/docs/passport_hassan_elghazali.pdf"
       ]
     }
   },
@@ -1044,7 +1049,7 @@
           "project_id": 14,
           "name": "Brand Refresh",
           "start_date": "2025-08-01",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 218
@@ -1071,7 +1076,7 @@
           "id": 214,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/isabelle_martin_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/isabelle_martin_august_2025.pdf"
         }
       ],
       "overtime_hours": 4,
@@ -1080,13 +1085,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_isabelle_martin.pdf"
+        "https://bhrm.com/docs/contract_isabelle_martin.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_design.pdf"
+        "https://bhrm.com/docs/certificate_design.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_isabelle_martin.pdf"
+        "https://bhrm.com/docs/passport_isabelle_martin.pdf"
       ]
     }
   },
@@ -1107,7 +1112,7 @@
           "project_id": 15,
           "name": "Process Improvement",
           "start_date": "2025-09-01",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 220
@@ -1134,7 +1139,7 @@
           "id": 215,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/karim_boussouf_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/karim_boussouf_august_2025.pdf"
         }
       ],
       "overtime_hours": 8,
@@ -1143,13 +1148,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_karim_boussouf.pdf"
+        "https://bhrm.com/docs/contract_karim_boussouf.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_ops.pdf"
+        "https://bhrm.com/docs/certificate_ops.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_karim_boussouf.pdf"
+        "https://bhrm.com/docs/passport_karim_boussouf.pdf"
       ]
     }
   },
@@ -1170,7 +1175,7 @@
           "project_id": 16,
           "name": "New Feature Development",
           "start_date": "2025-09-01",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 220
@@ -1197,7 +1202,7 @@
           "id": 216,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/lucas_davis_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/lucas_davis_august_2025.pdf"
         }
       ],
       "overtime_hours": 10,
@@ -1206,13 +1211,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_lucas_davis.pdf"
+        "https://bhrm.com/docs/contract_lucas_davis.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_dev.pdf"
+        "https://bhrm.com/docs/certificate_dev.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_lucas_davis.pdf"
+        "https://bhrm.com/docs/passport_lucas_davis.pdf"
       ]
     }
   },
@@ -1233,7 +1238,7 @@
           "project_id": 17,
           "name": "Press Campaign 2025",
           "start_date": "2025-08-15",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 218
@@ -1260,7 +1265,7 @@
           "id": 217,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/salma_idrissi_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/salma_idrissi_august_2025.pdf"
         }
       ],
       "overtime_hours": 5,
@@ -1269,13 +1274,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_salma_idrissi.pdf"
+        "https://bhrm.com/docs/contract_salma_idrissi.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_pr.pdf"
+        "https://bhrm.com/docs/certificate_pr.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_salma_idrissi.pdf"
+        "https://bhrm.com/docs/passport_salma_idrissi.pdf"
       ]
     }
   },
@@ -1296,7 +1301,7 @@
           "project_id": 18,
           "name": "Customer Data Analysis",
           "start_date": "2025-09-01",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 220
@@ -1323,7 +1328,7 @@
           "id": 218,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/ethan_clark_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/ethan_clark_august_2025.pdf"
         }
       ],
       "overtime_hours": 7,
@@ -1332,13 +1337,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_ethan_clark.pdf"
+        "https://bhrm.com/docs/contract_ethan_clark.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_data.pdf"
+        "https://bhrm.com/docs/certificate_data.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_ethan_clark.pdf"
+        "https://bhrm.com/docs/passport_ethan_clark.pdf"
       ]
     }
   },
@@ -1359,7 +1364,7 @@
           "project_id": 19,
           "name": "Contract Review 2025",
           "start_date": "2025-07-01",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 220
@@ -1386,7 +1391,7 @@
           "id": 219,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/meryem_aitouarasse_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/meryem_aitouarasse_august_2025.pdf"
         }
       ],
       "overtime_hours": 5,
@@ -1395,13 +1400,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_meryem_aitouarasse.pdf"
+        "https://bhrm.com/docs/contract_meryem_aitouarasse.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_legal.pdf"
+        "https://bhrm.com/docs/certificate_legal.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_meryem_aitouarasse.pdf"
+        "https://bhrm.com/docs/passport_meryem_aitouarasse.pdf"
       ]
     }
   },
@@ -1422,7 +1427,7 @@
           "project_id": 20,
           "name": "Client Acquisition Campaign",
           "start_date": "2025-08-01",
-          "status": "en cours"
+          "status": "ongoing"
         }
       ],
       "work_days_per_year": 220
@@ -1449,7 +1454,7 @@
           "id": 220,
           "month": "August",
           "year": 2025,
-          "file_url": "https://example.com/payslips/liam_taylor_august_2025.pdf"
+          "file_url": "https://bhrm.com/payslips/liam_taylor_august_2025.pdf"
         }
       ],
       "overtime_hours": 6,
@@ -1458,13 +1463,13 @@
     },
     "documents": {
       "contracts": [
-        "https://example.com/docs/contract_liam_taylor.pdf"
+        "https://bhrm.com/docs/contract_liam_taylor.pdf"
       ],
       "certificates": [
-        "https://example.com/docs/certificate_sales.pdf"
+        "https://bhrm.com/docs/certificate_sales.pdf"
       ],
       "id_documents": [
-        "https://example.com/docs/passport_liam_taylor.pdf"
+        "https://bhrm.com/docs/passport_liam_taylor.pdf"
       ]
     }
   }

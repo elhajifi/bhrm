@@ -366,7 +366,7 @@ function EmployeeModal({ title, form, setForm, onSubmit, onClose }) {
 
         <form className="grid grid-cols-1 md:grid-cols-3 gap-6" onSubmit={onSubmit}>
 
-          {/* --- General Info Section --- */}
+          {/* General Info Section */}
           <div className="md:col-span-3">
             <h3 className="text-lg font-medium text-gray-700 border-b pb-2 mb-4">General Information</h3>
           </div>
@@ -405,7 +405,7 @@ function EmployeeModal({ title, form, setForm, onSubmit, onClose }) {
             </div>
           ))}
 
-          {/* --- Payroll Section --- */}
+          {/* Payroll Section */}
           <div className="md:col-span-3 mt-6">
             <h3 className="text-lg font-medium text-gray-700 border-b pb-2 mb-4">Payroll</h3>
           </div>
@@ -439,7 +439,7 @@ function EmployeeModal({ title, form, setForm, onSubmit, onClose }) {
             </div>
           ))}
 
-          {/* --- Documents Section --- */}
+          {/* Documents Section */}
           <div className="md:col-span-3 mt-6">
             <h3 className="text-lg font-medium text-gray-700 border-b pb-2 mb-4">Documents</h3>
           </div>
@@ -466,7 +466,7 @@ function EmployeeModal({ title, form, setForm, onSubmit, onClose }) {
             </div>
           ))}
 
-          {/* --- Current Projects Section --- */}
+          {/* Current Projects Section */}
 <div className="md:col-span-3 mt-6">
   <h3 className="text-lg font-medium text-gray-700 border-b pb-2 mb-4">
     Current Projects
@@ -529,7 +529,7 @@ function EmployeeModal({ title, form, setForm, onSubmit, onClose }) {
     <button
       type="button"
       onClick={addProject}
-      className="px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700"
+      className="px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 cursor-pointer"
     >
       + Add Project
     </button>
@@ -537,7 +537,7 @@ function EmployeeModal({ title, form, setForm, onSubmit, onClose }) {
 </div>
 
 
-          {/* --- Form Actions --- */}
+          {/* Form Actions */}
           <div className="md:col-span-3 flex justify-end gap-3 mt-6">
             <button type="submit" className="px-6 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700">
               Save
