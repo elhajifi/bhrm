@@ -11,12 +11,14 @@ import {
   DocumentTextIcon,
 } from "@heroicons/react/24/outline";
 import { useUser } from "@/components/UserContext";
+import { useGuard } from "@/components/ReadOnly";
 import { Notice, Spinner } from "@/components/ui";
 import { api } from "@/lib/api";
 import { MONTHS, computePay, formatMoney } from "@/lib/hr";
 
 export default function PayrollPage() {
   const user = useUser();
+  const guard = useGuard();
   const isAdmin = user.role === "admin";
   const [profiles, setProfiles] = useState(null);
   const [notice, setNotice] = useState(null);
@@ -116,13 +118,15 @@ export default function PayrollPage() {
             <button onClick={exportCsv} className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-white hover:bg-gray-50">
               <ArrowDownTrayIcon className="w-5 h-5" /> Export CSV
             </button>
+            {!user.readOnly && (
             <button
-              onClick={runPayroll}
+              onClick={guard(runPayroll)}
               disabled={running}
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-60"
             >
               <PlayIcon className="w-5 h-5" /> {running ? "Running…" : "Run payroll"}
             </button>
+            )}
           </div>
         )}
       </div>

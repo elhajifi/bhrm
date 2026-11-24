@@ -118,7 +118,7 @@ export async function GET() {
 }
 
 export async function POST(req) {
-  const { response } = await requireUser({ admin: true });
+  const { response } = await requireUser({ admin: true, write: true });
   if (response) return response;
 
   const body = await req.json().catch(() => null);
@@ -149,7 +149,7 @@ export async function POST(req) {
 }
 
 export async function PUT(req) {
-  const { user, response } = await requireUser({ admin: true });
+  const { user, response } = await requireUser({ admin: true, write: true });
   if (response) return response;
 
   const body = await req.json().catch(() => null);
@@ -191,7 +191,7 @@ export async function PUT(req) {
 }
 
 export async function DELETE(req) {
-  const { user, response } = await requireUser({ admin: true });
+  const { user, response } = await requireUser({ admin: true, write: true });
   if (response) return response;
 
   const body = await req.json().catch(() => null);

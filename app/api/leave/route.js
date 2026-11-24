@@ -13,7 +13,7 @@ function overlaps(a, b) {
 }
 
 export async function POST(req) {
-  const { user, response } = await requireUser();
+  const { user, response } = await requireUser({ write: true });
   if (response) return response;
 
   const body = await req.json().catch(() => ({}));
@@ -85,7 +85,7 @@ export async function POST(req) {
 }
 
 export async function PATCH(req) {
-  const { user, response } = await requireUser({ admin: true });
+  const { user, response } = await requireUser({ admin: true, write: true });
   if (response) return response;
 
   const body = await req.json().catch(() => ({}));
@@ -125,7 +125,7 @@ export async function PATCH(req) {
 }
 
 export async function DELETE(req) {
-  const { user, response } = await requireUser();
+  const { user, response } = await requireUser({ write: true });
   if (response) return response;
 
   const body = await req.json().catch(() => ({}));

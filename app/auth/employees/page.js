@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { PencilIcon, TrashIcon, EyeIcon, UserPlusIcon } from "@heroicons/react/24/outline";
 import { useUser } from "@/components/UserContext";
+import { useGuard } from "@/components/ReadOnly";
 import { AdminOnly, Notice, Spinner, initials } from "@/components/ui";
 import { api } from "@/lib/api";
 import { CONTRACT_TYPES, ROLES, formatMoney } from "@/lib/hr";
@@ -88,6 +89,8 @@ function toPayload(form) {
 
 export default function EmployeesPage() {
   const user = useUser();
+  const guard = useGuard();
+  const canEdit = !user.readOnly;
   const [employees, setEmployees] = useState(null);
   const [filter, setFilter] = useState("");
   const [modal, setModal] = useState(null); // null | { mode: "add" } | { mode: "edit", id }
@@ -176,12 +179,14 @@ export default function EmployeesPage() {
           onChange={(e) => setFilter(e.target.value)}
           className="border border-gray-300 rounded-lg px-4 py-2 w-full md:w-80 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        <button
-          onClick={openAdd}
-          className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition"
-        >
-          <UserPlusIcon className="w-5 h-5" /> Add Employee
-        </button>
+        {canEdit && (
+          <button
+            onClick={guard(openAdd)}
+            className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition"
+          >
+            <UserPlusIcon className="w-5 h-5" /> Add Employee
+          </button>
+        )}
       </div>
 
       {modal && (
@@ -250,17 +255,19 @@ export default function EmployeesPage() {
                       >
                         <EyeIcon className="w-5 h-5 text-blue-600" />
                       </Link>
+                      {canEdit && (
                       <button
                         className="p-1.5 hover:bg-blue-100 rounded-lg border-2 border-blue-50"
-                        onClick={() => openEdit(emp)}
+                        onClick={guard(() => openEdit(emp))}
                         title="Edit"
                       >
                         <PencilIcon className="w-5 h-5 text-blue-600" />
                       </button>
-                      {emp.id !== user.id && (
+                      )}
+                      {canEdit && emp.id !== user.id && (
                         <button
                           className="p-1.5 hover:bg-red-100 border-2 border-red-50 rounded-lg"
-                          onClick={() => handleDelete(emp)}
+                          onClick={guard(() => handleDelete(emp))}
                           title="Delete"
                         >
                           <TrashIcon className="w-5 h-5 text-red-600" />

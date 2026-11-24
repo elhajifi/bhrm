@@ -66,6 +66,7 @@ Berbou HRM gives HR teams a clear view of their workforce and gives employees se
 - Passwords hashed with **scrypt**
 - **httpOnly, HMAC-signed** session cookies that can't be read or forged in the browser
 - Role checks on every API route; employees only ever receive their own data
+- Read-only demo account: edit controls hidden in the UI and changes blocked on the server
 - Passwords are never sent to the browser
 
 ## Screenshots
@@ -121,11 +122,13 @@ npm run lint     # lint the code
 
 | Role | Email | Password |
 | --- | --- | --- |
-| Administrator | `guest@bhrm.com` | `guest` |
-| Employee | `fatima.elamrani@bhrm.com` | `password123` |
-| Employee | `john.doe@bhrm.com` | `password123` |
+| Administrator (view only) | `guest@bhrm.com` | `guest` |
+| Employee (view only) | `fatima.elamrani@bhrm.com` | `password123` |
+| Employee (view only) | `john.doe@bhrm.com` | `password123` |
 
 All other seeded employees use `password123`.
+
+These three demo accounts are **read-only**: they can open every page, but the buttons to add, edit, delete, approve, send messages, request leave or run payroll are hidden, and the API refuses any change from it (HTTP 403). This keeps the public demo clean. To change which accounts are read-only, set `DEMO_READ_ONLY_EMAILS`.
 
 > [!WARNING]
 > These accounts come from the demo data in `data.json`. Change these passwords before using the app with real people.
@@ -137,6 +140,7 @@ All other seeded employees use `password123`.
 | `SESSION_SECRET` | **Yes** (in production) | Secret used to sign session cookies. Use a long random string. |
 | `KV_REST_API_URL` / `KV_REST_API_TOKEN` | For Vercel | Upstash Redis credentials. When set, data is stored in Redis. |
 | `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` | Alternative | Same as above, using Upstash's own variable names. |
+| `DEMO_READ_ONLY_EMAILS` | No | Comma-separated emails of view-only accounts. Defaults to the three demo logins above. Set it to an empty value to disable. |
 | `DATA_DIR` | No | Folder containing `data.json` and `messages.json` when using file storage. Defaults to the project root. |
 
 ## Deployment

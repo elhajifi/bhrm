@@ -289,12 +289,14 @@ function AdminDashboard({ profiles }) {
                     <Link href={`/auth/employees/${p.id}`} className="text-xs px-3 py-1 rounded-lg border hover:bg-gray-50">
                       Profile
                     </Link>
-                    <Link
-                      href={`/auth/messages?to=${p.id}`}
-                      className="text-xs px-3 py-1 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
-                    >
-                      Message
-                    </Link>
+                    {!user.readOnly && (
+                      <Link
+                        href={`/auth/messages?to=${p.id}`}
+                        className="text-xs px-3 py-1 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
+                      >
+                        Message
+                      </Link>
+                    )}
                   </div>
                 </div>
               ))}

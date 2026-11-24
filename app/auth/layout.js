@@ -14,6 +14,7 @@ import {
   Bars3Icon,
 } from "@heroicons/react/24/outline";
 import { UserProvider } from "@/components/UserContext";
+import { ReadOnlyBadge, ReadOnlyProvider } from "@/components/ReadOnly";
 import { Spinner, initials } from "@/components/ui";
 
 export default function AuthLayout({ children }) {
@@ -89,6 +90,7 @@ export default function AuthLayout({ children }) {
 
   return (
     <UserProvider user={user}>
+      <ReadOnlyProvider>
       <div className="flex flex-col min-h-screen bg-white text-gray-900 font-sans">
         {/* Header */}
         <header className="no-print sticky top-0 z-40 flex justify-between items-center mx-2 mt-1 px-4 py-2.5 bg-blue-600 shadow-md rounded-lg">
@@ -111,6 +113,7 @@ export default function AuthLayout({ children }) {
           </div>
 
           <div className="flex items-center gap-3">
+            <ReadOnlyBadge />
             <Link
               href="/auth/messages"
               className="relative text-white hover:text-blue-200 transition-colors"
@@ -175,13 +178,14 @@ export default function AuthLayout({ children }) {
             <div className="px-4 py-3 text-xs text-gray-500 border-t">
               Logged in as
               <div className="font-medium text-blue-700 truncate">{user.email}</div>
-              <div className="capitalize">{user.role}</div>
+              <div className="capitalize">{user.role}{user.readOnly ? " · view only" : ""}</div>
             </div>
           </aside>
 
           <main className="flex-1 overflow-auto min-h-0">{children}</main>
         </div>
       </div>
+      </ReadOnlyProvider>
     </UserProvider>
   );
 }
