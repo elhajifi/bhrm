@@ -6,7 +6,7 @@ import { error, json, requireUser } from "@/lib/auth";
 import { MONTHS, computePay } from "@/lib/hr";
 
 export async function POST(req) {
-  const { user, response } = await requireUser({ admin: true });
+  const { user, response } = await requireUser({ admin: true, write: true });
   if (response) return response;
 
   const body = await req.json().catch(() => ({}));

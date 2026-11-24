@@ -5,7 +5,7 @@
 // Archive and trash are per user: archiving a message doesn't hide it for the
 // other person.
 import { read, update } from "@/lib/db";
-import { error, json, requireUser } from "@/lib/auth";
+import { error, json, readOnlyError, requireUser } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
@@ -48,7 +48,7 @@ export async function GET() {
 }
 
 export async function POST(req) {
-  const { user, response } = await requireUser();
+  const { user, response } = await requireUser({ write: true });
   if (response) return response;
 
   const body = await req.json().catch(() => ({}));
@@ -102,8 +102,15 @@ export async function PATCH(req) {
   const action = body.action;
   if (!id) return error("Message id is required");
   if (!ACTIONS.includes(action)) return error("Unknown action");
+  // Read-only accounts may open messages but not change them ("read" is a no-op).
+  if (user.readOnly && action !== "read") return readOnlyError();
 
   const me = String(user.id);
+  if (user.readOnly) {
+    const msg = (await read("messages")).find((m) => m.id === id);
+    if (!msg || (msg.to !== me && msg.from !== me)) return error("Message not found", 404);
+    return json({ ...view(msg, me), read: true });
+  }
   const result = await update("messages", (list) => {
     const msg = list.find((m) => m.id === id);
     if (!msg || (msg.to !== me && msg.from !== me)) {

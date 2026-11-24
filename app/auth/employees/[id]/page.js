@@ -12,6 +12,7 @@ import {
   EnvelopeIcon,
 } from "@heroicons/react/24/outline";
 import { useUser } from "@/components/UserContext";
+import { useGuard } from "@/components/ReadOnly";
 import { Notice, Spinner, StatusBadge, initials } from "@/components/ui";
 import { api } from "@/lib/api";
 import { LEAVE_TYPES, computePay, formatMoney, workingDays } from "@/lib/hr";
@@ -19,6 +20,7 @@ import { LEAVE_TYPES, computePay, formatMoney, workingDays } from "@/lib/hr";
 export default function ProfilePage() {
   const { id } = useParams();
   const user = useUser();
+  const guard = useGuard();
   const [profile, setProfile] = useState(undefined); // undefined = loading, null = not found
   const [error, setError] = useState("");
 
@@ -72,7 +74,7 @@ export default function ProfilePage() {
           </p>
           <p className="text-gray-400 text-sm">{p.email}</p>
         </div>
-        {!isMe && (
+        {!isMe && !user.readOnly && (
           <Link
             href={`/auth/messages?to=${profile.id}`}
             className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
@@ -121,8 +123,8 @@ export default function ProfilePage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <StatusBadge status={leave.status} />
-                    {isMe && (
-                      <button onClick={() => cancelRequest(leave.id)} className="text-xs text-red-600 hover:underline">
+                    {isMe && !user.readOnly && (
+                      <button onClick={guard(() => cancelRequest(leave.id))} className="text-xs text-red-600 hover:underline">
                         Cancel
                       </button>
                     )}
@@ -150,7 +152,7 @@ export default function ProfilePage() {
             <p className="text-gray-500 text-sm">No leave history.</p>
           )}
 
-          {isMe && <LeaveRequestForm employee={profile} onCreated={setProfile} />}
+          {isMe && !user.readOnly && <LeaveRequestForm employee={profile} onCreated={setProfile} />}
         </SectionCard>
 
         {/* Payroll */}
@@ -251,6 +253,7 @@ function LeaveRequestForm({ employee, onCreated }) {
   const [formData, setFormData] = useState(empty);
   const [notice, setNotice] = useState(null);
   const [sending, setSending] = useState(false);
+  const guard = useGuard();
 
   const days = workingDays(formData.start_date, formData.end_date);
 
@@ -278,7 +281,7 @@ function LeaveRequestForm({ employee, onCreated }) {
   const today = new Date().toISOString().slice(0, 10);
 
   return (
-    <form onSubmit={handleSubmit} className="mt-4 bg-gray-50 p-3 rounded-lg space-y-2">
+    <form onSubmit={guard(handleSubmit)} className="mt-4 bg-gray-50 p-3 rounded-lg space-y-2">
       <h3 className="font-semibold text-blue-600">Request new leave</h3>
       <select name="type" value={formData.type} onChange={handleChange} className="border px-2 py-1 w-full rounded bg-white capitalize">
         {LEAVE_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}

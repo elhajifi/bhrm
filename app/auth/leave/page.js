@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { CheckCircleIcon, XCircleIcon, ClockIcon, UserIcon } from "@heroicons/react/24/outline";
 import { useUser } from "@/components/UserContext";
+import { useGuard } from "@/components/ReadOnly";
 import { AdminOnly, Notice, Spinner, StatusBadge } from "@/components/ui";
 import { api } from "@/lib/api";
 import { workingDays } from "@/lib/hr";
 
 export default function LeavePage() {
   const user = useUser();
+  const guard = useGuard();
   const [profiles, setProfiles] = useState(null);
   const [notice, setNotice] = useState(null);
   const [busy, setBusy] = useState(null);
@@ -94,22 +96,24 @@ export default function LeavePage() {
                     </div>
                   </div>
 
+                  {!user.readOnly && (
                   <div className="flex gap-2 mt-4">
                     <ActionButton
                       label="Approve"
                       icon={<CheckCircleIcon className="w-5 h-5" />}
                       color="blue"
                       disabled={busy === key}
-                      onClick={() => handleLeaveAction(req.employeeId, req.id, "approved")}
+                      onClick={guard(() => handleLeaveAction(req.employeeId, req.id, "approved"))}
                     />
                     <ActionButton
                       label="Reject"
                       icon={<XCircleIcon className="w-5 h-5" />}
                       color="red"
                       disabled={busy === key}
-                      onClick={() => handleLeaveAction(req.employeeId, req.id, "rejected")}
+                      onClick={guard(() => handleLeaveAction(req.employeeId, req.id, "rejected"))}
                     />
                   </div>
+                  )}
                 </div>
               );
             })}

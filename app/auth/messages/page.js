@@ -14,6 +14,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { useUser } from "@/components/UserContext";
+import { useGuard } from "@/components/ReadOnly";
 import { Notice, Spinner, initials } from "@/components/ui";
 import { api } from "@/lib/api";
 
@@ -36,6 +37,7 @@ export default function MessagesPageWrapper() {
 function MessagesPage() {
   const user = useUser();
   const me = String(user.id);
+  const guard = useGuard();
   const searchParams = useSearchParams();
 
   const [messages, setMessages] = useState(null);
@@ -57,8 +59,8 @@ function MessagesPage() {
   // /auth/messages?to=1004 opens a new message to that person
   useEffect(() => {
     const to = searchParams.get("to");
-    if (to && to !== me) setCompose({ to, subject: "", content: "" });
-  }, [searchParams, me]);
+    if (to && to !== me) guard(() => setCompose({ to, subject: "", content: "" }))();
+  }, [searchParams, me, guard]);
 
   const lists = useMemo(() => {
     const all = messages || [];
@@ -121,12 +123,14 @@ function MessagesPage() {
           <h2 className="text-lg font-semibold mb-4 text-blue-600 flex items-center gap-2">
             <EnvelopeIcon className="h-5 w-5" /> Messages
           </h2>
-          <button
-            className="flex items-center gap-2 bg-blue-600 text-white px-3 py-2 rounded-lg shadow hover:bg-blue-700"
-            onClick={() => setCompose({ to: "", subject: "", content: "" })}
-          >
-            <PencilSquareIcon className="h-5 w-5" /> New Message
-          </button>
+          {!user.readOnly && (
+            <button
+              className="flex items-center gap-2 bg-blue-600 text-white px-3 py-2 rounded-lg shadow hover:bg-blue-700"
+              onClick={guard(() => setCompose({ to: "", subject: "", content: "" }))}
+            >
+              <PencilSquareIcon className="h-5 w-5" /> New Message
+            </button>
+          )}
           <div className="mt-6 space-y-1 text-gray-600 text-sm">
             {FOLDERS.map(({ key, label, icon: Icon }) => (
               <button
@@ -186,49 +190,51 @@ function MessagesPage() {
               <p className="text-sm text-gray-500 mb-4">{format(new Date(selected.date), "PPpp")}</p>
               <p className="text-gray-800 leading-relaxed whitespace-pre-wrap">{selected.content}</p>
 
+              {!user.readOnly && (
               <div className="flex flex-wrap gap-4 mt-6 text-sm text-gray-600 border-t pt-4">
                 {selected.to === me && !selected.deleted && (
                   <button
                     className="flex items-center gap-1 hover:text-blue-600"
-                    onClick={() =>
+                    onClick={guard(() =>
                       setCompose({
                         to: selected.from,
                         subject: selected.subject.startsWith("Re: ") ? selected.subject : `Re: ${selected.subject}`,
                         content: "",
                       })
-                    }
+                    )}
                   >
                     <ArrowUturnLeftIcon className="h-4 w-4" /> Reply
                   </button>
                 )}
                 {!selected.deleted &&
                   (selected.archived ? (
-                    <button className="flex items-center gap-1 hover:text-blue-600" onClick={() => act(selected.id, "unarchive")}>
+                    <button className="flex items-center gap-1 hover:text-blue-600" onClick={guard(() => act(selected.id, "unarchive"))}>
                       <ArchiveBoxXMarkIcon className="h-4 w-4" /> Unarchive
                     </button>
                   ) : (
-                    <button className="flex items-center gap-1 hover:text-blue-600" onClick={() => act(selected.id, "archive")}>
+                    <button className="flex items-center gap-1 hover:text-blue-600" onClick={guard(() => act(selected.id, "archive"))}>
                       <ArchiveBoxIcon className="h-4 w-4" /> Archive
                     </button>
                   ))}
                 {selected.deleted ? (
                   <>
-                    <button className="flex items-center gap-1 hover:text-blue-600" onClick={() => act(selected.id, "restore")}>
+                    <button className="flex items-center gap-1 hover:text-blue-600" onClick={guard(() => act(selected.id, "restore"))}>
                       <ArrowPathIcon className="h-4 w-4" /> Restore
                     </button>
                     <button
                       className="flex items-center gap-1 hover:text-red-600"
-                      onClick={() => window.confirm("Delete this message forever?") && act(selected.id, "purge")}
+                      onClick={guard(() => window.confirm("Delete this message forever?") && act(selected.id, "purge"))}
                     >
                       <XMarkIcon className="h-4 w-4" /> Delete forever
                     </button>
                   </>
                 ) : (
-                  <button className="flex items-center gap-1 hover:text-red-600" onClick={() => act(selected.id, "delete")}>
+                  <button className="flex items-center gap-1 hover:text-red-600" onClick={guard(() => act(selected.id, "delete"))}>
                     <TrashIcon className="h-4 w-4" /> Delete
                   </button>
                 )}
               </div>
+              )}
             </div>
           ) : (
             <div className="text-gray-500 flex items-center justify-center h-full">Select a message to read</div>
