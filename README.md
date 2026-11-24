@@ -1,96 +1,210 @@
+<div align="center">
+
+<img src="app/icon.svg" width="72" alt="Berbou HRM logo" />
+
 # Berbou HRM
 
-Berbou HRM is a Human Resource Management (HRM) web application that simplifies employee management, payroll, leave, internal messaging and HR processes. It is built with **Next.js 15 (App Router)**, **React 19**, **Tailwind CSS 4** and **Recharts**, and stores its data in two JSON files.
+**Understand. Empower. Grow.**
 
-## Getting started
+An all-in-one Human Resource Management platform: employees, departments, leave, payroll and internal messaging in a single web app.
 
-```bash
-npm install
-cp .env.example .env.local   # then set SESSION_SECRET to a long random string
-npm run dev                  # http://localhost:3000
-```
+[![Live demo](https://img.shields.io/badge/demo-bhrm.vercel.app-2563eb?style=flat-square&logo=vercel)](https://bhrm.vercel.app)
+![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=flat-square&logo=nextdotjs)
+![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react&logoColor=000)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?style=flat-square&logo=tailwindcss&logoColor=fff)
+![Redis](https://img.shields.io/badge/Upstash-Redis-dc382d?style=flat-square&logo=redis&logoColor=fff)
 
-Production build:
+[Live demo](https://bhrm.vercel.app) · [Features](#features) · [Getting started](#getting-started) · [Deployment](#deployment)
 
-```bash
-npm run build
-npm start
-```
+<br />
 
-### Demo accounts
+<img src="docs/screenshots/dashboard.png" alt="HR dashboard" width="900" />
 
-| Role     | Email                      | Password      |
-| -------- | -------------------------- | ------------- |
-| Admin    | `guest@bhrm.com`           | `guest`       |
-| Employee | `fatima.elamrani@bhrm.com` | `password123` |
-| Employee | `john.doe@bhrm.com`        | `password123` |
+</div>
 
-Every other seeded employee also uses `password123`.
+---
 
-### Deploy on Vercel
+## Overview
 
-Vercel's file system is read-only, so on Vercel the app stores its data in **Redis** (Upstash) instead of the JSON files:
+Berbou HRM gives HR teams a clear view of their workforce and gives employees self-service access to their own information. It offers two experiences:
 
-1. Import the GitHub repository on [vercel.com/new](https://vercel.com/new) (framework: Next.js, default settings).
-2. In the project, open **Storage → Create / Connect database → Upstash for Redis** (free plan) and connect it to the project. This adds `KV_REST_API_URL` and `KV_REST_API_TOKEN` automatically.
-3. In **Settings → Environment Variables**, add `SESSION_SECRET` (a long random string).
-4. Redeploy. On the first request, the database is filled with the demo data from `data.json` and `messages.json`.
-
-When those Redis variables are not set (e.g. `npm run dev`), the app keeps using the JSON files.
+- **Administrators** manage the whole company: headcount, contracts, leave approvals, payroll runs and company-wide announcements.
+- **Employees** see their own profile, leave balance and payslips, request time off and message colleagues.
 
 ## Features
 
-| Page | Admin | Employee |
+### 📊 Dashboard
+- Company KPIs: headcount, absenteeism rate, leave usage and monthly payroll cost
+- Charts by department and by contract type
+- Attendance alerts for employees above an absenteeism threshold
+- Pending leave counter and people search
+- A personal dashboard for employees: leave balance, pending requests and net pay
+
+### 👥 Employees & departments
+- Full employee records: profile, contract, job, department, projects, payroll and documents
+- Create, edit and delete employees, with validation and unique emails
+- Department view with headcount and monthly payroll per team
+
+### 🗓️ Leave management
+- Employees request vacation, sick or other leave from their profile
+- Leave is counted in **working days** (Mon–Fri), and requests are checked against the balance and existing leave
+- Admins approve or reject; approved vacation is deducted from the balance automatically
+- Full history with filters and the name of the approver
+
+### 💶 Payroll
+- Gross and net pay per employee, including overtime and bonuses
+- **Run payroll**: generates the month's payslips for everyone in one click (safe to re-run)
+- Printable payslips (*Print → Save as PDF*)
+- CSV export that opens directly in Excel
+
+### ✉️ Internal messaging
+- Inbox, Sent, Archived and Trash folders, with unread badges
+- Reply, archive, delete and restore
+- Admin announcements to the whole company
+
+### 🔐 Security
+- Passwords hashed with **scrypt**
+- **httpOnly, HMAC-signed** session cookies that can't be read or forged in the browser
+- Role checks on every API route; employees only ever receive their own data
+- Passwords are never sent to the browser
+
+## Screenshots
+
+| Employee directory | Leave requests |
+| :---: | :---: |
+| <img src="docs/screenshots/employees.png" alt="Employee directory" /> | <img src="docs/screenshots/leave-requests.png" alt="Leave requests" /> |
+| **Employee dashboard** | **Payslip** |
+| <img src="docs/screenshots/employee-dashboard.png" alt="Employee dashboard" /> | <img src="docs/screenshots/payslip.png" alt="Payslip" /> |
+
+## Tech stack
+
+| Layer | Technology |
+| --- | --- |
+| Framework | [Next.js 15](https://nextjs.org) (App Router, Route Handlers, Middleware) |
+| UI | React 19, Tailwind CSS 4, Heroicons, Recharts |
+| Storage | [Upstash Redis](https://upstash.com) in production, local JSON files in development |
+| Auth | Custom: scrypt password hashing and HMAC-signed session cookies (Node `crypto`) |
+| Hosting | [Vercel](https://vercel.com) |
+
+## Getting started
+
+### Prerequisites
+
+- Node.js 20 or later
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/elhajifi/bhrm.git
+cd bhrm
+npm install
+cp .env.example .env.local
+```
+
+In `.env.local`, set `SESSION_SECRET` to a long random string:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
+### Run
+
+```bash
+npm run dev      # development server on http://localhost:3000
+npm run build    # production build
+npm start        # run the production build
+npm run lint     # lint the code
+```
+
+### Demo accounts (seed data)
+
+| Role | Email | Password |
 | --- | --- | --- |
-| **Dashboard** | Company KPIs (headcount, absenteeism, leave usage, monthly payroll), charts by department / contract, attendance alerts, pending leave, people search | Personal KPIs: leave balance, pending requests, absenteeism, net pay |
-| **Departments** | Employees grouped by department, filter and search, payroll per department | – |
-| **Employees** | Add / edit / delete employees (profile, payroll, leave balance, documents, projects) | – |
-| **Profile** | View anyone's profile | Own profile, request leave, cancel pending requests |
-| **Leave requests** | Approve / reject; approved vacation is deducted from the balance (working days, Mon–Fri) | – |
-| **Messages** | Inbox, sent, archive, trash, reply, message everyone | Same, without "message everyone" |
-| **Payroll** | Totals, CSV export (Excel-friendly), **Run payroll** generates the month's payslips | Own pay and payslips |
-| **Payslip** | Printable payslip (Print → Save as PDF) | Own payslips |
+| Administrator | `guest@bhrm.com` | `guest` |
+| Employee | `fatima.elamrani@bhrm.com` | `password123` |
+| Employee | `john.doe@bhrm.com` | `password123` |
 
-### Payroll rules
+All other seeded employees use `password123`.
 
-Defined in `lib/hr.js`:
+> [!WARNING]
+> These accounts come from the demo data in `data.json`. Change these passwords before using the app with real people.
 
-- Gross = base salary + overtime + bonuses
-- Net = gross − deductions
-- Overtime = hours × (monthly salary ÷ 151.67 h) × 125 %
-- Currency: `CURRENCY` in `lib/hr.js` (EUR by default)
+## Configuration
+
+| Variable | Required | Description |
+| --- | --- | --- |
+| `SESSION_SECRET` | **Yes** (in production) | Secret used to sign session cookies. Use a long random string. |
+| `KV_REST_API_URL` / `KV_REST_API_TOKEN` | For Vercel | Upstash Redis credentials. When set, data is stored in Redis. |
+| `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` | Alternative | Same as above, using Upstash's own variable names. |
+| `DATA_DIR` | No | Folder containing `data.json` and `messages.json` when using file storage. Defaults to the project root. |
+
+## Deployment
+
+The app is deployed on Vercel and redeploys automatically on every push to `main`.
+
+Because Vercel's file system is read-only, the production deployment stores its data in Redis:
+
+1. Import the repository on [vercel.com/new](https://vercel.com/new) (Next.js preset, default settings).
+2. Add **Storage → Upstash for Redis** (the free plan is enough) and connect it to the project with the prefix `KV`.
+3. Add `SESSION_SECRET` under **Settings → Environment Variables**.
+4. Deploy. On the first request, the database is seeded from `data.json` and `messages.json`.
+
+Without Redis credentials (for example in local development), the app reads and writes the JSON files instead.
 
 ## Project structure
 
 ```
-app/
-  page.js                 login page
-  auth/                   pages that require a login (layout = header + sidebar)
-  api/
-    auth/login|logout     session cookie
-    me                    current user
-    data                  employees (GET for everyone, POST/PUT/DELETE for admins)
-    directory             names only, used to pick message recipients
-    leave                 request / approve / reject / cancel leave
-    messages              send, list, archive, delete, restore
-    payroll/run           generate monthly payslips
-components/               shared UI + user context
-lib/
-  auth.js                 password hashing, signed session cookie, access checks
-  db.js                   storage: Redis when configured, JSON files otherwise
-  hr.js                   business rules (working days, pay, currency)
-middleware.js             redirects logged-out visitors to the login page
-scripts/hash-passwords.mjs  converts plain-text passwords in data.json to hashes
-data.json, messages.json  the data
+bhrm/
+├── app/
+│   ├── page.js                    # Login
+│   ├── auth/                      # Authenticated area (header + sidebar layout)
+│   │   ├── dashboard/             # Admin and employee dashboards
+│   │   ├── departments/
+│   │   ├── employees/             # Directory + [id] profile
+│   │   ├── leave/                 # Approvals and history
+│   │   ├── messages/
+│   │   └── payroll/               # Overview + payslip/[employeeId]/[payslipId]
+│   └── api/
+│       ├── auth/login · logout    # Session management
+│       ├── me                     # Current user
+│       ├── data                   # Employees CRUD (role-aware)
+│       ├── directory              # Public colleague list (names only)
+│       ├── leave                  # Request, approve, reject, cancel
+│       ├── messages               # Send, list, archive, delete, restore
+│       └── payroll/run            # Monthly payslip generation
+├── components/                    # Shared UI and user context
+├── lib/
+│   ├── auth.js                    # Hashing, signed sessions, access control
+│   ├── db.js                      # Storage layer (Redis or JSON files)
+│   └── hr.js                      # Business rules: working days, pay, currency
+├── middleware.js                  # Redirects logged-out visitors to login
+├── scripts/hash-passwords.mjs     # Migrates plain-text passwords to hashes
+├── data.json                      # Seed data: employees
+└── messages.json                  # Seed data: messages
 ```
 
-## Security
+## Business rules
 
-- Passwords are stored as scrypt hashes. If you add plain-text passwords to `data.json` by hand, run `node scripts/hash-passwords.mjs`; they are also converted on the next successful login.
-- The session is an **httpOnly cookie signed with HMAC**, so it can't be read or forged in the browser. Set `SESSION_SECRET` in production.
-- Every API route checks the session and the role on the server. Employees only receive their own record, and passwords are never sent to the browser.
+All HR calculations live in [`lib/hr.js`](lib/hr.js), so the dashboard, payroll, payslips and API always agree.
 
-## Limits
+| Rule | Definition |
+| --- | --- |
+| Gross pay | Base salary + overtime + bonuses |
+| Net pay | Gross pay − deductions |
+| Overtime | Hours × (monthly salary ÷ 151.67 h) × 125 % |
+| Leave duration | Working days (Monday to Friday), inclusive |
+| Absenteeism | Approved leave days ÷ yearly work days |
+| Currency | EUR, configurable through `CURRENCY` in `lib/hr.js` |
 
-- Locally, data is stored in JSON files; on Vercel (or anywhere the Redis variables are set) it is stored as two JSON documents in Redis. That suits a demo or a small team; a larger company would want a relational database.
-- The document links in the seed data are placeholders.
+## Roadmap
+
+- [ ] File uploads for contracts and ID documents
+- [ ] Password reset by email
+- [ ] Public holidays in the working-day calculation
+- [ ] Relational database (PostgreSQL) for larger organisations
+- [ ] French interface
+
+## Author
+
+**Mohammed El Hajifi**: [@elhajifi](https://github.com/elhajifi)
