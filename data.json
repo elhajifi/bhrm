@@ -5,7 +5,7 @@
       "first_name": "Mohammed",
       "last_name": "Elhajifi",
       "email": "guest@bhrm.com",
-      "password": "guest",
+      "password": "scrypt$16d91bf283c8354f26e0b3a5a1258022$51dc32dc6aeb517f49f3f69635854e078182347e40e9e2a9368f6af393cbbd7a6b5446ce05d4f0c3971a198b686e35b2802f0629508dfd49d83a4167082609b5",
       "role": "admin",
       "contract": "alternance",
       "job_title": "Comptable",
@@ -77,13 +77,27 @@
           "id": 1,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/mohammed_elhajifi_august_2025.pdf"
+          "salary": 3600,
+          "overtimeHours": 12,
+          "overtimePay": 356.04,
+          "bonuses": 250,
+          "deductions": 60,
+          "hourlyRate": 23.735742071602825,
+          "gross": 4206.04,
+          "net": 4146.04
         },
         {
           "id": 2,
           "month": "September",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/mohammed_elhajifi_september_2025.pdf"
+          "salary": 3600,
+          "overtimeHours": 12,
+          "overtimePay": 356.04,
+          "bonuses": 250,
+          "deductions": 60,
+          "hourlyRate": 23.735742071602825,
+          "gross": 4206.04,
+          "net": 4146.04
         }
       ],
       "overtime_hours": 12,
@@ -108,7 +122,7 @@
       "first_name": "Fatima",
       "last_name": "El Amrani",
       "email": "fatima.elamrani@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$5892d169d5a15fcbe06f76dc7dc3d4a0$d24ad3c1b75bfcf276b61128b6a3d8ff5c82958100f177479f18d6eaeb07229b163397c61868b83d4dd3923d923aafbf31fdc274023d85f1040ebc08a8fba3fe",
       "role": "employee",
       "contract": "CDI",
       "job_title": "HR Specialist",
@@ -180,13 +194,27 @@
           "id": 401,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/fatima_elamrani_august_2025.pdf"
+          "salary": 4500,
+          "overtimeHours": 5,
+          "overtimePay": 185.44,
+          "bonuses": 300,
+          "deductions": 75,
+          "hourlyRate": 29.66967758950353,
+          "gross": 4985.44,
+          "net": 4910.44
         },
         {
           "id": 402,
           "month": "September",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/fatima_elamrani_september_2025.pdf"
+          "salary": 4500,
+          "overtimeHours": 5,
+          "overtimePay": 185.44,
+          "bonuses": 300,
+          "deductions": 75,
+          "hourlyRate": 29.66967758950353,
+          "gross": 4985.44,
+          "net": 4910.44
         }
       ],
       "overtime_hours": 5,
@@ -213,7 +241,7 @@
       "first_name": "John",
       "last_name": "Doe",
       "email": "john.doe@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$b917322689beea46bf833f8604b2840b$9693f16ab942fb764cafc710d100a1188568f7d3f9e047fd9d6ee5159558ca11c7c6a0894bee2b18fdd39646f05c50a5eca665c2074fa0106c70e3c4df1da522",
       "role": "employee",
       "contract": "CDI",
       "job_title": "Software Engineer",
@@ -251,7 +279,14 @@
           "id": 201,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/john_doe_august_2025.pdf"
+          "salary": 5000,
+          "overtimeHours": 8,
+          "overtimePay": 329.66,
+          "bonuses": 300,
+          "deductions": 100,
+          "hourlyRate": 32.9663084327817,
+          "gross": 5629.66,
+          "net": 5529.66
         }
       ],
       "overtime_hours": 8,
@@ -276,7 +311,7 @@
       "first_name": "Emma",
       "last_name": "Smith",
       "email": "emma.smith@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$14f9b6e1a0c0ee2298275d7e6db41f48$5b68fc1e9568b0079b051c7e6c8446650960fc4b47a83bc6296f33ce311807cd5803f110febc8afc41e82f95138fb45526dce324a486e7765e494eb197fe2a1d",
       "role": "employee",
       "contract": "CDI",
       "job_title": "Marketing Manager",
@@ -314,7 +349,14 @@
           "id": 202,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/emma_smith_august_2025.pdf"
+          "salary": 4800,
+          "overtimeHours": 5,
+          "overtimePay": 197.8,
+          "bonuses": 400,
+          "deductions": 50,
+          "hourlyRate": 31.64765609547043,
+          "gross": 5397.8,
+          "net": 5347.8
         }
       ],
       "overtime_hours": 5,
@@ -338,8 +380,8 @@
     "profile": {
       "first_name": "Fatima",
       "last_name": "El Amrani",
-      "email": "fatima.elamrani@bhrm.com",
-      "password": "password123",
+      "email": "f.elamrani@bhrm.com",
+      "password": "scrypt$3c5685e4588021b45c4f48a3397768c8$f3ae899450aeac85c382d9571aac40f2a5e02db5400166d500481de1584ac3bdaaa33b4a64501f6805fffdcce8c0b062eb51712b0fed1767123659bba2df98f1",
       "role": "employee",
       "contract": "CDI",
       "job_title": "HR Specialist",
@@ -377,7 +419,14 @@
           "id": 203,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/fatima_elamrani_august_2025.pdf"
+          "salary": 4500,
+          "overtimeHours": 5,
+          "overtimePay": 185.44,
+          "bonuses": 300,
+          "deductions": 75,
+          "hourlyRate": 29.66967758950353,
+          "gross": 4985.44,
+          "net": 4910.44
         }
       ],
       "overtime_hours": 5,
@@ -402,7 +451,7 @@
       "first_name": "Alex",
       "last_name": "Johnson",
       "email": "alex.johnson@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$014ef4802e68c584c9644da16fcf8f34$5a26f9b7867458a9b9a375c0fba8981243e75d3d4086a6929a990294a35daa18a617590467dd83e7e52c5f43b6796bac3909d53d99dfd87094806efb4bdedff4",
       "role": "employee",
       "contract": "CDI",
       "job_title": "Financial Analyst",
@@ -440,7 +489,14 @@
           "id": 204,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/alex_johnson_august_2025.pdf"
+          "salary": 4700,
+          "overtimeHours": 12,
+          "overtimePay": 464.82,
+          "bonuses": 250,
+          "deductions": 80,
+          "hourlyRate": 30.9883299268148,
+          "gross": 5414.82,
+          "net": 5334.82
         }
       ],
       "overtime_hours": 12,
@@ -465,7 +521,7 @@
       "first_name": "Laila",
       "last_name": "Benkirane",
       "email": "laila.benkirane@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$26397cb36c875f3d8bfb52475558832d$7a5f36c1f931cb89ee238160e9a6c512466d7124d13bc7e61f67d9adb7fc303c2fd7f47288906bd6c84e922624097ae6fac529cfd86e81f03ca9d669b915dc6d",
       "role": "employee",
       "contract": "CDI",
       "job_title": "Recruitment Specialist",
@@ -503,7 +559,14 @@
           "id": 205,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/laila_benkirane_august_2025.pdf"
+          "salary": 4200,
+          "overtimeHours": 3,
+          "overtimePay": 103.84,
+          "bonuses": 200,
+          "deductions": 50,
+          "hourlyRate": 27.691699083536626,
+          "gross": 4503.84,
+          "net": 4453.84
         }
       ],
       "overtime_hours": 3,
@@ -528,7 +591,7 @@
       "first_name": "David",
       "last_name": "Miller",
       "email": "david.miller@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$e51ff4541ce4d1afa9da965c9c9d27c6$56f80278268de0690aca8714ee0b3c3c6a0b068cf8e0198220ebf51b9e266038750e875ff0fc8706fe0909e15c07cea71e5990fa9c3bbae52d9563bae7425ab0",
       "role": "employee",
       "contract": "CDI",
       "job_title": "Product Manager",
@@ -566,7 +629,14 @@
           "id": 206,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/david_miller_august_2025.pdf"
+          "salary": 5500,
+          "overtimeHours": 10,
+          "overtimePay": 453.29,
+          "bonuses": 500,
+          "deductions": 120,
+          "hourlyRate": 36.26293927605987,
+          "gross": 6453.29,
+          "net": 6333.29
         }
       ],
       "overtime_hours": 10,
@@ -591,7 +661,7 @@
       "first_name": "Sara",
       "last_name": "Haddad",
       "email": "sara.haddad@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$b7a69b7e2d3da2357c130580c073d2ff$7169f1115aa165ec2807b36426b52dc137b830471f14957d6237d324607820c91d9171ed3e924648a0d4548abbc2116ffbae55076dddadfda9dca929833a0bf6",
       "role": "employee",
       "contract": "CDD",
       "job_title": "Financial Controller",
@@ -629,7 +699,14 @@
           "id": 207,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/sara_haddad_august_2025.pdf"
+          "salary": 4600,
+          "overtimeHours": 6,
+          "overtimePay": 227.47,
+          "bonuses": 350,
+          "deductions": 80,
+          "hourlyRate": 30.329003758159164,
+          "gross": 5177.47,
+          "net": 5097.47
         }
       ],
       "overtime_hours": 6,
@@ -654,7 +731,7 @@
       "first_name": "Michael",
       "last_name": "Brown",
       "email": "michael.brown@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$ed280dc4a7cb76299320ad113de09218$a1870c8a2933cfefd44d7e90777fcfa33643d79b6308d3355431ddd9d8a9895f005d1fbf414daeacb8e50c2f5f3e7092bbe986b8b8c527952a944e86710c9248",
       "role": "employee",
       "contract": "CDI",
       "job_title": "IT Support Specialist",
@@ -692,7 +769,14 @@
           "id": 208,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/michael_brown_august_2025.pdf"
+          "salary": 4300,
+          "overtimeHours": 7,
+          "overtimePay": 248.07,
+          "bonuses": 200,
+          "deductions": 60,
+          "hourlyRate": 28.35102525219226,
+          "gross": 4748.07,
+          "net": 4688.07
         }
       ],
       "overtime_hours": 7,
@@ -717,7 +801,7 @@
       "first_name": "Youssef",
       "last_name": "Ouhammou",
       "email": "youssef.ouhammou@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$adf5101172c6b8348edc8aaa04019e31$8e7487912b0cf27a03f09e1092be7af6f0f063fcf961c3489f8ef901140c1724b007a11a49c9389ed21718d55f76b55901bf56de12a32070dcb20b8097297249",
       "role": "employee",
       "contract": "CDI",
       "job_title": "Operations Manager",
@@ -755,7 +839,14 @@
           "id": 209,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/youssef_ouhammou_august_2025.pdf"
+          "salary": 6000,
+          "overtimeHours": 15,
+          "overtimePay": 741.74,
+          "bonuses": 500,
+          "deductions": 150,
+          "hourlyRate": 39.55957011933804,
+          "gross": 7241.74,
+          "net": 7091.74
         }
       ],
       "overtime_hours": 15,
@@ -780,7 +871,7 @@
       "first_name": "Nora",
       "last_name": "El Fassi",
       "email": "nora.elfassi@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$cae6cb3b50d7bd1a8ee579a9afce2123$ca81012c037fca18ed9948798d7f4ccfed268fe6c25ea8ac0139cf1c4fd7e530c857fbf148cdbf8784af93a94f9a0faa7fce9979eb4096468729d01e110df909",
       "role": "employee",
       "contract": "CDI",
       "job_title": "UX Designer",
@@ -824,7 +915,14 @@
           "id": 210,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/nora_elfassi_august_2025.pdf"
+          "salary": 4700,
+          "overtimeHours": 4,
+          "overtimePay": 154.94,
+          "bonuses": 250,
+          "deductions": 60,
+          "hourlyRate": 30.9883299268148,
+          "gross": 5104.94,
+          "net": 5044.94
         }
       ],
       "overtime_hours": 4,
@@ -849,7 +947,7 @@
       "first_name": "Omar",
       "last_name": "Choukri",
       "email": "omar.choukri@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$b56fcc5f6a254686ca363b2b8f2cd3ce$8162ecf541a199f980cf675e597d4345b1f1b9de0389dffdae87e5f1b96cbebadd749bd39c346d9ca9c06cef54b1edb6be9bfe28d0474bd0d43cf334f261617c",
       "role": "employee",
       "contract": "CDI",
       "job_title": "Logistics Coordinator",
@@ -887,7 +985,14 @@
           "id": 211,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/omar_choukri_august_2025.pdf"
+          "salary": 4500,
+          "overtimeHours": 6,
+          "overtimePay": 222.52,
+          "bonuses": 300,
+          "deductions": 70,
+          "hourlyRate": 29.66967758950353,
+          "gross": 5022.52,
+          "net": 4952.52
         }
       ],
       "overtime_hours": 6,
@@ -912,7 +1017,7 @@
       "first_name": "Sophia",
       "last_name": "Williams",
       "email": "sophia.williams@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$5e8efc901f52f58e429d4b74f1bf981a$1dd6d592f00ad3da19d88df1dadb1aa55dbb7baf4f97aa6f5c526ad618398e830f0b190aeab87c537ce28c0c8f10c251c5500d29fe6471af52490c1689719dc6",
       "role": "employee",
       "contract": "CDI",
       "job_title": "Content Writer",
@@ -950,7 +1055,14 @@
           "id": 212,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/sophia_williams_august_2025.pdf"
+          "salary": 4200,
+          "overtimeHours": 3,
+          "overtimePay": 103.84,
+          "bonuses": 200,
+          "deductions": 50,
+          "hourlyRate": 27.691699083536626,
+          "gross": 4503.84,
+          "net": 4453.84
         }
       ],
       "overtime_hours": 3,
@@ -975,7 +1087,7 @@
       "first_name": "Hassan",
       "last_name": "El Ghazali",
       "email": "hassan.elghazali@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$106bc921656e0fde778b1702d8504674$71710600599df2e60de54791e83ccea8e203d852b92782bf48cb18483e15eedfe3c156063e7b81fbea2daafed86390e195e73b5dab66d4a37b1bf861156b8cf7",
       "role": "employee",
       "contract": "CDI",
       "job_title": "Business Analyst",
@@ -1013,7 +1125,14 @@
           "id": 213,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/hassan_elghazali_august_2025.pdf"
+          "salary": 4800,
+          "overtimeHours": 7,
+          "overtimePay": 276.92,
+          "bonuses": 400,
+          "deductions": 90,
+          "hourlyRate": 31.64765609547043,
+          "gross": 5476.92,
+          "net": 5386.92
         }
       ],
       "overtime_hours": 7,
@@ -1038,7 +1157,7 @@
       "first_name": "Isabelle",
       "last_name": "Martin",
       "email": "isabelle.martin@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$d4b2bbf6bdb0fedaa48a3f07382e539e$f1fe56a1101f497f0a882c997558747d3659d4205f4ca2dbb256f4d93bc1e289d28e3bf80bf3be028d3a0c0dc30d9842d87ccd07365000d9545b6aa11556b8dd",
       "role": "employee",
       "contract": "CDD",
       "job_title": "Graphic Designer",
@@ -1076,7 +1195,14 @@
           "id": 214,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/isabelle_martin_august_2025.pdf"
+          "salary": 4300,
+          "overtimeHours": 4,
+          "overtimePay": 141.76,
+          "bonuses": 250,
+          "deductions": 60,
+          "hourlyRate": 28.35102525219226,
+          "gross": 4691.76,
+          "net": 4631.76
         }
       ],
       "overtime_hours": 4,
@@ -1101,7 +1227,7 @@
       "first_name": "Karim",
       "last_name": "Boussouf",
       "email": "karim.boussouf@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$4998490775f6f065f6557db4269ddafa$7af9a31cc7dcef2087bf58e1324e92dc7a3f6b6a52fda8b925dc12d8db9199104436167fefbfa0fa74c9381c56badf14bbbaed9ee65779972cec54184f3df82e",
       "role": "employee",
       "contract": "CDI",
       "job_title": "Operations Analyst",
@@ -1139,7 +1265,14 @@
           "id": 215,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/karim_boussouf_august_2025.pdf"
+          "salary": 4700,
+          "overtimeHours": 8,
+          "overtimePay": 309.88,
+          "bonuses": 350,
+          "deductions": 80,
+          "hourlyRate": 30.9883299268148,
+          "gross": 5359.88,
+          "net": 5279.88
         }
       ],
       "overtime_hours": 8,
@@ -1164,7 +1297,7 @@
       "first_name": "Lucas",
       "last_name": "Davis",
       "email": "lucas.davis@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$bda9b39a6d784adf1c780e7345e67c57$7fab1bf86f7b79805fc8db5a4cff368746a0a2aa1f677e65f44eb2240cb9b8f29c02240945b03f58d375eede7888387283546b338305cb3a6e907282979cd66e",
       "role": "employee",
       "contract": "CDI",
       "job_title": "Software Developer",
@@ -1202,7 +1335,14 @@
           "id": 216,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/lucas_davis_august_2025.pdf"
+          "salary": 5000,
+          "overtimeHours": 10,
+          "overtimePay": 412.08,
+          "bonuses": 400,
+          "deductions": 100,
+          "hourlyRate": 32.9663084327817,
+          "gross": 5812.08,
+          "net": 5712.08
         }
       ],
       "overtime_hours": 10,
@@ -1227,7 +1367,7 @@
       "first_name": "Salma",
       "last_name": "Idrissi",
       "email": "salma.idrissi@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$c9e601777b3f13dd81ee456ddd41bc7e$bd136e12ca35acbcaf6d9f5027cbb73fe87bf87fbfa97c12ea548637aea479ffcb82d5445474b8dd965965bf90e0e08d4860dd738952206bb58748e40e23e669",
       "role": "employee",
       "contract": "CDI",
       "job_title": "PR Specialist",
@@ -1265,7 +1405,14 @@
           "id": 217,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/salma_idrissi_august_2025.pdf"
+          "salary": 4500,
+          "overtimeHours": 5,
+          "overtimePay": 185.44,
+          "bonuses": 300,
+          "deductions": 70,
+          "hourlyRate": 29.66967758950353,
+          "gross": 4985.44,
+          "net": 4915.44
         }
       ],
       "overtime_hours": 5,
@@ -1290,7 +1437,7 @@
       "first_name": "Ethan",
       "last_name": "Clark",
       "email": "ethan.clark@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$a4eb5d2ba48c7b0834b4a0b2b1295022$99a74d0c871437e14c3d51c95b847fc5260191ff4807ec647ba958170770ce9d4441f46db72dae8bebb919be74e87f0cd75c41798bc391b9e47ee801ea3949c5",
       "role": "employee",
       "contract": "CDI",
       "job_title": "Data Analyst",
@@ -1328,7 +1475,14 @@
           "id": 218,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/ethan_clark_august_2025.pdf"
+          "salary": 4800,
+          "overtimeHours": 7,
+          "overtimePay": 276.92,
+          "bonuses": 350,
+          "deductions": 90,
+          "hourlyRate": 31.64765609547043,
+          "gross": 5426.92,
+          "net": 5336.92
         }
       ],
       "overtime_hours": 7,
@@ -1353,7 +1507,7 @@
       "first_name": "Meryem",
       "last_name": "Ait Ouarasse",
       "email": "meryem.aitouarasse@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$afde757168dd3789b1c6c7a51fcbe400$4eb16663a067c7f09fef923fa4bf6a3ac63c5d054e47a406073f6c971e74beeb75782998b6a3cc51c72d7ebcda7ef117774076f4035bc6aa6dff676aff19c6cc",
       "role": "employee",
       "contract": "CDI",
       "job_title": "Legal Advisor",
@@ -1391,7 +1545,14 @@
           "id": 219,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/meryem_aitouarasse_august_2025.pdf"
+          "salary": 5500,
+          "overtimeHours": 5,
+          "overtimePay": 226.64,
+          "bonuses": 400,
+          "deductions": 120,
+          "hourlyRate": 36.26293927605987,
+          "gross": 6126.64,
+          "net": 6006.64
         }
       ],
       "overtime_hours": 5,
@@ -1416,7 +1577,7 @@
       "first_name": "Liam",
       "last_name": "Taylor",
       "email": "liam.taylor@bhrm.com",
-      "password": "password123",
+      "password": "scrypt$8bad2280c47bc8931e0c6711852f563a$2a6170afb4cd51e53d5834a061722d0bce54688bd1b557eb94a56d8298cb1f35b391564ea297e511d1ab948d822a9b8ccc620be63477c96be861723ff2457ec5",
       "role": "employee",
       "contract": "CDI",
       "job_title": "Sales Executive",
@@ -1454,7 +1615,14 @@
           "id": 220,
           "month": "August",
           "year": 2025,
-          "file_url": "https://bhrm.com/payslips/liam_taylor_august_2025.pdf"
+          "salary": 4700,
+          "overtimeHours": 6,
+          "overtimePay": 232.41,
+          "bonuses": 300,
+          "deductions": 80,
+          "hourlyRate": 30.9883299268148,
+          "gross": 5232.41,
+          "net": 5152.41
         }
       ],
       "overtime_hours": 6,

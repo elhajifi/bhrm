@@ -8,7 +8,10 @@
     "from": "999",
     "from_name": "Mohammed Elhajifi",
     "date": "2025-09-22T12:36:27.447Z",
-    "status": "inbox"
+    "read": true,
+    "archived_by": [],
+    "deleted_by": [],
+    "purged_by": []
   },
   {
     "id": "1758033234489",
@@ -19,7 +22,10 @@
     "from": "999",
     "from_name": "Mohammed Elhajifi",
     "date": "2025-09-16T14:33:54.489Z",
-    "status": "inbox"
+    "read": true,
+    "archived_by": [],
+    "deleted_by": [],
+    "purged_by": []
   },
   {
     "id": "1758033130995",
@@ -30,6 +36,9 @@
     "from": "1000",
     "from_name": "Fatima El Amrani",
     "date": "2025-09-16T14:32:10.995Z",
-    "status": "inbox"
+    "read": true,
+    "archived_by": [],
+    "deleted_by": [],
+    "purged_by": []
   }
 ]
