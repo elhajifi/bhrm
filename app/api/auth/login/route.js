@@ -1,31 +1,49 @@
-import { promises as fs } from "fs";
-import path from "path";
 import { cookies } from "next/headers";
-
-const filePath = path.join(process.cwd(), "data.json");
+import { read, update } from "@/lib/db";
+import {
+  SESSION_COOKIE,
+  createSessionToken,
+  error,
+  hashPassword,
+  isHashed,
+  json,
+  sessionCookieOptions,
+  toSessionUser,
+  verifyPassword,
+} from "@/lib/auth";
 
 export async function POST(req) {
-    const { email, password } = await req.json();
+  let body;
+  try {
+    body = await req.json();
+  } catch {
+    return error("Invalid request");
+  }
+  const email = String(body?.email || "").trim().toLowerCase();
+  const password = String(body?.password || "");
 
-    if (!email || !password) {
-        return new Response(JSON.stringify({ error: "Email and password required" }), { status: 400 });
-    }
+  if (!email || !password) return error("Email and password required");
 
-    const data = await fs.readFile(filePath, "utf-8");
-    const employees = JSON.parse(data);
+  const employees = await read("employees");
+  const employee = employees.find(
+    (e) => String(e.profile?.email || "").toLowerCase() === email
+  );
 
-    const employee = employees.find(
-        e => e.profile.email === email && e.profile.password === password
-    );
+  if (!employee || !verifyPassword(password, employee.profile?.password)) {
+    return error("Invalid email or password", 401);
+  }
 
-    if (!employee) {
-        return new Response(JSON.stringify({ error: "Invalid credentials" }), { status: 401 });
-    }
+  // Upgrade an old plain-text password to a hash on first successful login
+  if (!isHashed(employee.profile.password)) {
+    await update("employees", (list) => {
+      const target = list.find((e) => e.id === employee.id);
+      if (target) target.profile.password = hashPassword(password);
+      return { data: list };
+    });
+  }
 
-    // Save user info in a cookie
-    const user = { id: employee.id, role: employee.profile.role, name: `${employee.profile.first_name} ${employee.profile.last_name}` };
-    const cookieStore = await cookies();
-    cookieStore.set("user", JSON.stringify(user), { path: "/" });
+  const store = await cookies();
+  store.set(SESSION_COOKIE, createSessionToken(employee.id), sessionCookieOptions);
 
-    return new Response(JSON.stringify({ user }), { status: 200 });
+  return json({ user: toSessionUser(employee) });
 }

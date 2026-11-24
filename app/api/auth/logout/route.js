@@ -1,7 +1,8 @@
 import { cookies } from "next/headers";
+import { SESSION_COOKIE, json } from "@/lib/auth";
 
 export async function POST() {
-  const cookieStore = await cookies();
-  cookieStore.delete("user", { path: "/" });
-  return new Response(JSON.stringify({ message: "Logged out" }), { status: 200 });
+  const store = await cookies();
+  store.delete(SESSION_COOKIE);
+  return json({ message: "Logged out" });
 }

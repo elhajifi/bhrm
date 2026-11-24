@@ -1,101 +1,106 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 import {
-  UserIcon,
   CalendarIcon,
   CurrencyDollarIcon,
   DocumentTextIcon,
   BriefcaseIcon,
   ClipboardDocumentListIcon,
-  ArrowDownTrayIcon,
+  DocumentArrowDownIcon,
+  EnvelopeIcon,
 } from "@heroicons/react/24/outline";
+import { useUser } from "@/components/UserContext";
+import { Notice, Spinner, StatusBadge, initials } from "@/components/ui";
+import { api } from "@/lib/api";
+import { LEAVE_TYPES, computePay, formatMoney, workingDays } from "@/lib/hr";
 
-export default function ProfilesPage() {
-  const params = useParams();
-  const { id } = params;
-  const router = useRouter();
-
-  const [profile, setProfile] = useState(null);
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+export default function ProfilePage() {
+  const { id } = useParams();
+  const user = useUser();
+  const [profile, setProfile] = useState(undefined); // undefined = loading, null = not found
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    async function fetchData() {
-      setLoading(true);
+    api("/api/data")
+      .then((data) => setProfile(data.find((p) => p.id === Number(id)) || null))
+      .catch((e) => setError(e.message));
+  }, [id]);
 
-      const userRes = await fetch("/api/me");
-      const { user } = await userRes.json();
-      setUser(user);
-
-      const res = await fetch("/api/data");
-      const data = await res.json();
-      const selectedProfile = data.find((p) => p.id === Number(id));
-
-      if (!selectedProfile || (user.role === "employee" && user.id !== selectedProfile.id)) {
-        alert("You are not allowed to view this profile.");
-        router.push("/auth/dashboard");
-        return;
-      }
-
-      setProfile(selectedProfile);
-      setLoading(false);
-    }
-
-    fetchData();
-  }, [id, router]);
-
-  if (loading)
+  if (error) return <div className="p-6"><Notice notice={{ type: "error", text: error }} /></div>;
+  if (profile === undefined) return <Spinner />;
+  if (profile === null)
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-50">
-        <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-      </div>
+      <p className="text-center mt-10 text-red-500">
+        Profile not found or you are not allowed to view it.
+      </p>
     );
 
-  if (!profile)
-    return <p className="text-center mt-10 text-red-500">Profile not found or access denied.</p>;
+  const isMe = user.id === profile.id;
+  const p = profile.profile || {};
+  const pay = computePay(profile.payroll);
+  const pending = profile.attendance_leave?.leave_requests || [];
+  const history = [...(profile.attendance_leave?.history_of_leaves || [])].sort((a, b) =>
+    b.start_date.localeCompare(a.start_date)
+  );
 
-  const canRequestLeave = user && user.role === "employee" && user.id === profile.id;
+  async function cancelRequest(leaveId) {
+    if (!window.confirm("Cancel this leave request?")) return;
+    try {
+      const updated = await api("/api/leave", { method: "DELETE", body: { leaveId } });
+      setProfile(updated);
+    } catch (e) {
+      setError(e.message);
+    }
+  }
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen space-y-8">
       {/* Header */}
-      <div className="flex items-center gap-6 bg-white rounded-xl p-6 shadow-md">
+      <div className="flex flex-wrap items-center gap-6 bg-white rounded-xl p-6 shadow-md">
         <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 text-white flex items-center justify-center text-2xl font-bold shadow-lg">
-          {profile.profile?.first_name[0]}
-          {profile.profile?.last_name[0]}
+          {initials(p.first_name, p.last_name)}
         </div>
-        <div>
+        <div className="flex-1 min-w-0">
           <h1 className="text-2xl font-bold text-gray-800">
-            {profile.profile?.first_name} {profile.profile?.last_name}
+            {p.first_name} {p.last_name}
           </h1>
-          <p className="text-blue-600 font-medium">{profile.profile?.job_title}</p>
-          <p className="text-gray-500 text-sm">{profile.profile?.department}</p>
-          <p className="text-gray-400 text-sm">{profile.profile?.email}</p>
+          <p className="text-blue-600 font-medium">{p.job_title}</p>
+          <p className="text-gray-500 text-sm">
+            {p.department} · {p.contract} · since {p.hire_date}
+          </p>
+          <p className="text-gray-400 text-sm">{p.email}</p>
         </div>
+        {!isMe && (
+          <Link
+            href={`/auth/messages?to=${profile.id}`}
+            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+          >
+            <EnvelopeIcon className="w-5 h-5" /> Message
+          </Link>
+        )}
       </div>
 
       {/* Quick Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <StatCard icon={<BriefcaseIcon className="w-6 h-6" />} label="Projects" value={(profile.profile?.current_projects ?? []).length} />
-        <StatCard icon={<CalendarIcon className="w-6 h-6" />} label="Leave Balance" value={profile.attendance_leave?.leave_balance ?? 0} />
-        <StatCard icon={<ClipboardDocumentListIcon className="w-6 h-6" />} label="Pending Requests" value={(profile.attendance_leave?.leave_requests ?? []).length} />
-        <StatCard icon={<CurrencyDollarIcon className="w-6 h-6" />} label="Salary" value={`${profile.payroll?.salary_amount} MAD`} />
+        <StatCard icon={<BriefcaseIcon className="w-6 h-6" />} label="Projects" value={(p.current_projects ?? []).length} />
+        <StatCard icon={<CalendarIcon className="w-6 h-6" />} label="Leave balance" value={`${profile.attendance_leave?.leave_balance ?? 0} days`} />
+        <StatCard icon={<ClipboardDocumentListIcon className="w-6 h-6" />} label="Pending requests" value={pending.length} />
+        <StatCard icon={<CurrencyDollarIcon className="w-6 h-6" />} label="Monthly salary" value={formatMoney(pay.salary)} />
       </div>
 
-      {/* Detailed Sections */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Projects */}
         <SectionCard title="Current Projects" icon={<BriefcaseIcon className="w-5 h-5 text-blue-500" />}>
-          {profile.profile?.current_projects?.length > 0 ? (
-            profile.profile.current_projects.map((proj) => (
+          {p.current_projects?.length > 0 ? (
+            p.current_projects.map((proj) => (
               <div key={proj.project_id} className="border rounded p-3 flex justify-between items-center hover:bg-gray-50">
                 <div>
                   <p className="font-medium">{proj.name}</p>
-                  <p className="text-sm text-gray-500">
-                    {proj.start_date} – {proj.status}
-                  </p>
+                  <p className="text-sm text-gray-500">Started {proj.start_date || "—"}</p>
                 </div>
+                <span className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full capitalize">{proj.status}</span>
               </div>
             ))
           ) : (
@@ -104,43 +109,74 @@ export default function ProfilesPage() {
         </SectionCard>
 
         {/* Attendance & Leave */}
-        <SectionCard title="Attendance & Leave" icon={<CalendarIcon className="w-5 h-5 text-blue-500" />}>
-          <p className="text-sm text-gray-600 font-medium">Leave History:</p>
-          <div className="space-y-2 mt-2">
-            {profile.attendance_leave?.history_of_leaves?.length > 0 ? (
-              profile.attendance_leave.history_of_leaves.map((leave) => (
-                <div key={leave.id} className="border rounded p-2 bg-gray-50">
-                  <p className="font-medium capitalize">{leave.type}</p>
+        <SectionCard id="leave" title="Attendance & Leave" icon={<CalendarIcon className="w-5 h-5 text-blue-500" />}>
+          {pending.length > 0 && (
+            <>
+              <p className="text-sm text-gray-600 font-medium">Pending requests</p>
+              {pending.map((leave) => (
+                <div key={leave.id} className="border rounded p-2 bg-yellow-50/50 flex justify-between items-center gap-2">
+                  <div>
+                    <p className="font-medium"><span className="capitalize">{leave.type}</span> · {leave.days ?? workingDays(leave.start_date, leave.end_date)} day(s)</p>
+                    <p className="text-xs text-gray-500">{leave.start_date} → {leave.end_date} · {leave.reason}</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <StatusBadge status={leave.status} />
+                    {isMe && (
+                      <button onClick={() => cancelRequest(leave.id)} className="text-xs text-red-600 hover:underline">
+                        Cancel
+                      </button>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
+
+          <p className="text-sm text-gray-600 font-medium">Leave history</p>
+          {history.length > 0 ? (
+            history.map((leave) => (
+              <div key={leave.id} className="border rounded p-2 bg-gray-50 flex justify-between items-center">
+                <div>
+                  <p className="font-medium"><span className="capitalize">{leave.type}</span> · {leave.days ?? workingDays(leave.start_date, leave.end_date)} day(s)</p>
                   <p className="text-xs text-gray-500">
                     {leave.start_date} → {leave.end_date}
+                    {leave.approved_by ? ` · by ${leave.approved_by}` : ""}
                   </p>
-                  <p className="text-xs text-gray-400">Status: {leave.status}</p>
                 </div>
-              ))
-            ) : (
-              <p className="text-gray-500 text-sm">No leave history.</p>
-            )}
-          </div>
-          {canRequestLeave && <LeaveRequestForm employee={profile} />}
+                <StatusBadge status={leave.status} />
+              </div>
+            ))
+          ) : (
+            <p className="text-gray-500 text-sm">No leave history.</p>
+          )}
+
+          {isMe && <LeaveRequestForm employee={profile} onCreated={setProfile} />}
         </SectionCard>
 
         {/* Payroll */}
         <SectionCard title="Payroll" icon={<CurrencyDollarIcon className="w-5 h-5 text-blue-500" />}>
-          <p className="text-gray-600">Overtime: {profile.payroll?.overtime_hours} hrs</p>
-          <p className="text-gray-600">Bonuses: {profile.payroll?.bonuses} MAD</p>
-          <p className="text-gray-600">Deductions: {profile.payroll?.deductions} MAD</p>
+          <dl className="text-sm text-gray-600 space-y-1">
+            <Line label="Base salary" value={formatMoney(pay.salary)} />
+            <Line label={`Overtime (${pay.overtimeHours} h)`} value={formatMoney(pay.overtimePay)} />
+            <Line label="Bonuses" value={formatMoney(pay.bonuses)} />
+            <Line label="Deductions" value={`− ${formatMoney(pay.deductions)}`} />
+            <Line label="Net" value={formatMoney(pay.net)} bold />
+          </dl>
           <div className="mt-3 space-y-2">
             <p className="font-medium">Payslips</p>
-            {profile.payroll?.payslips?.map((p) => (
-              <a
-                key={p.id}
-                href={p.file_url}
-                target="_blank"
-                className="flex items-center gap-2 text-blue-600 hover:underline text-sm"
-              >
-                <ArrowDownTrayIcon className="w-4 h-4" /> {p.month} {p.year}
-              </a>
-            ))}
+            {profile.payroll?.payslips?.length > 0 ? (
+              profile.payroll.payslips.map((ps) => (
+                <Link
+                  key={ps.id}
+                  href={`/auth/payroll/payslip/${profile.id}/${ps.id}`}
+                  className="flex items-center gap-2 text-blue-600 hover:underline text-sm"
+                >
+                  <DocumentArrowDownIcon className="w-4 h-4" /> {ps.month} {ps.year}
+                </Link>
+              ))
+            ) : (
+              <p className="text-sm text-gray-500">No payslips yet.</p>
+            )}
           </div>
         </SectionCard>
 
@@ -156,21 +192,30 @@ export default function ProfilesPage() {
 }
 
 /* -------------------- Components -------------------- */
+function Line({ label, value, bold }) {
+  return (
+    <div className={`flex justify-between ${bold ? "font-semibold text-gray-900 border-t pt-1 mt-1" : ""}`}>
+      <dt>{label}</dt>
+      <dd>{value}</dd>
+    </div>
+  );
+}
+
 function StatCard({ icon, label, value }) {
   return (
     <div className="bg-white rounded-xl shadow-md p-4 flex items-center gap-3 hover:shadow-lg transition">
       <div className="p-3 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 text-white">{icon}</div>
-      <div>
+      <div className="min-w-0">
         <p className="text-gray-500 text-sm">{label}</p>
-        <p className="text-lg font-bold text-gray-800">{value}</p>
+        <p className="text-lg font-bold text-gray-800 truncate">{value}</p>
       </div>
     </div>
   );
 }
 
-function SectionCard({ title, icon, children }) {
+function SectionCard({ id, title, icon, children }) {
   return (
-    <div className="bg-white p-5 rounded-xl shadow-md space-y-3">
+    <div id={id} className="bg-white p-5 rounded-xl shadow-md space-y-3 scroll-mt-20">
       <h2 className="flex items-center gap-2 font-semibold text-gray-800 border-b pb-2">
         {icon} {title}
       </h2>
@@ -187,8 +232,8 @@ function DocList({ title, docs }) {
         <ul className="list-disc list-inside text-sm text-blue-600 space-y-1">
           {docs.map((url, i) => (
             <li key={i}>
-              <a href={url} target="_blank" className="hover:underline">
-                {title} {i + 1}
+              <a href={url} target="_blank" rel="noopener noreferrer" className="hover:underline break-all">
+                {decodeURIComponent(url.split("/").pop() || `${title} ${i + 1}`)}
               </a>
             </li>
           ))}
@@ -201,13 +246,13 @@ function DocList({ title, docs }) {
 }
 
 /* -------------------- Leave Request Form -------------------- */
-function LeaveRequestForm({ employee }) {
-  const [formData, setFormData] = useState({
-    type: "vacation",
-    start_date: "",
-    end_date: "",
-    reason: "",
-  });
+function LeaveRequestForm({ employee, onCreated }) {
+  const empty = { type: "vacation", start_date: "", end_date: "", reason: "" };
+  const [formData, setFormData] = useState(empty);
+  const [notice, setNotice] = useState(null);
+  const [sending, setSending] = useState(false);
+
+  const days = workingDays(formData.start_date, formData.end_date);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -216,59 +261,44 @@ function LeaveRequestForm({ employee }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (!formData.start_date || !formData.end_date || !formData.reason) {
-      alert("All fields are required");
-      return;
-    }
-
-    const newLeaveRequest = {
-      id: Date.now(),
-      type: formData.type,
-      start_date: formData.start_date,
-      end_date: formData.end_date,
-      reason: formData.reason,
-      status: "pending",
-      approved_by: null,
-    };
-
-    const updatedEmployee = {
-      id: employee.id,
-      attendance_leave: {
-        ...employee.attendance_leave,
-        leave_requests: [
-          ...(employee.attendance_leave?.leave_requests || []),
-          newLeaveRequest,
-        ],
-      },
-    };
-
-    const res = await fetch("/api/data", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedEmployee),
-    });
-
-    if (res.ok) {
-      alert("Leave request submitted!");
-      setFormData({ type: "vacation", start_date: "", end_date: "", reason: "" });
-    } else {
-      alert("Error submitting leave request");
+    setNotice(null);
+    setSending(true);
+    try {
+      const { employee: updated } = await api("/api/leave", { method: "POST", body: formData });
+      onCreated(updated);
+      setFormData(empty);
+      setNotice({ type: "success", text: "Leave request sent. An admin will review it." });
+    } catch (err) {
+      setNotice({ type: "error", text: err.message });
+    } finally {
+      setSending(false);
     }
   }
 
+  const today = new Date().toISOString().slice(0, 10);
+
   return (
     <form onSubmit={handleSubmit} className="mt-4 bg-gray-50 p-3 rounded-lg space-y-2">
-      <h3 className="font-semibold text-blue-600">Request New Leave</h3>
-      <select name="type" value={formData.type} onChange={handleChange} className="border px-2 py-1 w-full rounded">
-        <option value="vacation">Vacation</option>
-        <option value="sick">Sick</option>
-        <option value="other">Other</option>
+      <h3 className="font-semibold text-blue-600">Request new leave</h3>
+      <select name="type" value={formData.type} onChange={handleChange} className="border px-2 py-1 w-full rounded bg-white capitalize">
+        {LEAVE_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
       </select>
-      <input type="date" name="start_date" value={formData.start_date} onChange={handleChange} className="border px-2 py-1 w-full rounded" />
-      <input type="date" name="end_date" value={formData.end_date} onChange={handleChange} className="border px-2 py-1 w-full rounded" />
-      <input type="text" name="reason" value={formData.reason} onChange={handleChange} placeholder="Reason" className="border px-2 py-1 w-full rounded" />
-      <button type="submit" className="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700 transition">Submit Leave</button>
-      <p className="text-sm text-gray-500">Remaining balance: {employee.attendance_leave?.leave_balance ?? 0}</p>
+      <div className="grid grid-cols-2 gap-2">
+        <label className="text-xs text-gray-600">
+          From
+          <input type="date" name="start_date" required min={today} value={formData.start_date} onChange={handleChange} className="border px-2 py-1 w-full rounded bg-white" />
+        </label>
+        <label className="text-xs text-gray-600">
+          To
+          <input type="date" name="end_date" required min={formData.start_date || today} value={formData.end_date} onChange={handleChange} className="border px-2 py-1 w-full rounded bg-white" />
+        </label>
+      </div>
+      <input type="text" name="reason" required maxLength={500} value={formData.reason} onChange={handleChange} placeholder="Reason" className="border px-2 py-1 w-full rounded bg-white" />
+      <button type="submit" disabled={sending} className="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700 transition disabled:opacity-60">
+        {sending ? "Sending…" : `Submit leave${days ? ` (${days} working day${days > 1 ? "s" : ""})` : ""}`}
+      </button>
+      <p className="text-sm text-gray-500">Remaining balance: {employee.attendance_leave?.leave_balance ?? 0} days (vacation only)</p>
+      <Notice notice={notice} onClose={() => setNotice(null)} />
     </form>
   );
 }
