@@ -123,12 +123,12 @@ npm run lint     # lint the code
 | Role | Email | Password |
 | --- | --- | --- |
 | Administrator (view only) | `guest@bhrm.com` | `guest` |
-| Employee | `fatima.elamrani@bhrm.com` | `password123` |
-| Employee | `john.doe@bhrm.com` | `password123` |
+| Employee (view only) | `fatima.elamrani@bhrm.com` | `password123` |
+| Employee (view only) | `john.doe@bhrm.com` | `password123` |
 
 All other seeded employees use `password123`.
 
-The `guest` account is **read-only**: it can open every admin page, but the buttons to add, edit, delete, approve, send messages or run payroll are hidden, and the API refuses any change from it (HTTP 403). This keeps the public demo clean. To change which accounts are read-only, set `DEMO_READ_ONLY_EMAILS`.
+These three demo accounts are **read-only**: they can open every page, but the buttons to add, edit, delete, approve, send messages, request leave or run payroll are hidden, and the API refuses any change from it (HTTP 403). This keeps the public demo clean. To change which accounts are read-only, set `DEMO_READ_ONLY_EMAILS`.
 
 > [!WARNING]
 > These accounts come from the demo data in `data.json`. Change these passwords before using the app with real people.
@@ -140,7 +140,7 @@ The `guest` account is **read-only**: it can open every admin page, but the butt
 | `SESSION_SECRET` | **Yes** (in production) | Secret used to sign session cookies. Use a long random string. |
 | `KV_REST_API_URL` / `KV_REST_API_TOKEN` | For Vercel | Upstash Redis credentials. When set, data is stored in Redis. |
 | `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` | Alternative | Same as above, using Upstash's own variable names. |
-| `DEMO_READ_ONLY_EMAILS` | No | Comma-separated emails of view-only accounts. Defaults to `guest@bhrm.com`. Set it to an empty value to disable. |
+| `DEMO_READ_ONLY_EMAILS` | No | Comma-separated emails of view-only accounts. Defaults to the three demo logins above. Set it to an empty value to disable. |
 | `DATA_DIR` | No | Folder containing `data.json` and `messages.json` when using file storage. Defaults to the project root. |
 
 ## Deployment
