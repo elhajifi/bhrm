@@ -27,6 +27,17 @@ npm start
 
 Every other seeded employee also uses `password123`.
 
+### Deploy on Vercel
+
+Vercel's file system is read-only, so on Vercel the app stores its data in **Redis** (Upstash) instead of the JSON files:
+
+1. Import the GitHub repository on [vercel.com/new](https://vercel.com/new) (framework: Next.js, default settings).
+2. In the project, open **Storage → Create / Connect database → Upstash for Redis** (free plan) and connect it to the project. This adds `KV_REST_API_URL` and `KV_REST_API_TOKEN` automatically.
+3. In **Settings → Environment Variables**, add `SESSION_SECRET` (a long random string).
+4. Redeploy. On the first request, the database is filled with the demo data from `data.json` and `messages.json`.
+
+When those Redis variables are not set (e.g. `npm run dev`), the app keeps using the JSON files.
+
 ## Features
 
 | Page | Admin | Employee |
@@ -66,7 +77,7 @@ app/
 components/               shared UI + user context
 lib/
   auth.js                 password hashing, signed session cookie, access checks
-  db.js                   JSON file storage (serialised, atomic writes)
+  db.js                   storage: Redis when configured, JSON files otherwise
   hr.js                   business rules (working days, pay, currency)
 middleware.js             redirects logged-out visitors to the login page
 scripts/hash-passwords.mjs  converts plain-text passwords in data.json to hashes
@@ -81,5 +92,5 @@ data.json, messages.json  the data
 
 ## Limits
 
-- Data is stored in JSON files, which suits a demo or a small team. Hosts with a read-only file system (e.g. Vercel) can't save changes; use a server or VPS, or replace `lib/db.js` with a real database.
+- Locally, data is stored in JSON files; on Vercel (or anywhere the Redis variables are set) it is stored as two JSON documents in Redis. That suits a demo or a small team; a larger company would want a relational database.
 - The document links in the seed data are placeholders.

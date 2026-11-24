@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@upstash/redis": "^1.41.1",
     "date-fns": "^4.1.0",
     "geist": "^1.9.2",
     "next": "15.5.3",
